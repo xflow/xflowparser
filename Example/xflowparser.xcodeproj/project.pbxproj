@@ -9,6 +9,22 @@
 /* Begin PBXBuildFile section */
 		109FD8651989F1A90018DB42 /* XFAMainWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 109FD8641989F1A90018DB42 /* XFAMainWC.m */; };
 		109FD86A198A05CC0018DB42 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109FD869198A05CC0018DB42 /* MainMenu.xib */; };
+		10C0A631198A11FF000B85BA /* project.pbxproj.tpl in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A613198A11FE000B85BA /* project.pbxproj.tpl */; };
+		10C0A632198A11FF000B85BA /* HelloWorld-Info.plist.tpl in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A615198A11FE000B85BA /* HelloWorld-Info.plist.tpl */; };
+		10C0A633198A11FF000B85BA /* HelloWorld-Prefix.pch.tpl in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A616198A11FE000B85BA /* HelloWorld-Prefix.pch.tpl */; };
+		10C0A634198A11FF000B85BA /* XFAAppDelegate.h.tpl in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A617198A11FE000B85BA /* XFAAppDelegate.h.tpl */; };
+		10C0A635198A11FF000B85BA /* XFAAppDelegate.m.tpl in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A618198A11FE000B85BA /* XFAAppDelegate.m.tpl */; };
+		10C0A636198A11FF000B85BA /* XFAViewController.h.tpl in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A619198A11FE000B85BA /* XFAViewController.h.tpl */; };
+		10C0A637198A11FF000B85BA /* XFAViewController.m.tpl in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A61A198A11FE000B85BA /* XFAViewController.m.tpl */; };
+		10C0A638198A11FF000B85BA /* XFADirectoryReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C0A627198A11FE000B85BA /* XFADirectoryReaderTests.m */; };
+		10C0A63A198A11FF000B85BA /* XFAFileReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C0A629198A11FF000B85BA /* XFAFileReaderTests.m */; };
+		10C0A63B198A11FF000B85BA /* XFAHeadersParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C0A62A198A11FF000B85BA /* XFAHeadersParserTests.m */; };
+		10C0A63C198A11FF000B85BA /* XFAMethodSignatureParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C0A62B198A11FF000B85BA /* XFAMethodSignatureParserTests.m */; };
+		10C0A63D198A11FF000B85BA /* XFAObjcClassParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C0A62C198A11FF000B85BA /* XFAObjcClassParserTests.m */; };
+		10C0A63E198A11FF000B85BA /* XFAObjcMethodArgumentParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C0A62D198A11FF000B85BA /* XFAObjcMethodArgumentParserTests.m */; };
+		10C0A63F198A11FF000B85BA /* XFAObjcMethodParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C0A62E198A11FF000B85BA /* XFAObjcMethodParserTests.m */; };
+		10C0A640198A11FF000B85BA /* XFAObjcPropertyParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C0A62F198A11FF000B85BA /* XFAObjcPropertyParserTests.m */; };
+		10C0A641198A11FF000B85BA /* XFATypeEncodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C0A630198A11FF000B85BA /* XFATypeEncodingTests.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
@@ -37,6 +53,32 @@
 		109FD8631989F1A90018DB42 /* XFAMainWC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFAMainWC.h; sourceTree = "<group>"; };
 		109FD8641989F1A90018DB42 /* XFAMainWC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAMainWC.m; sourceTree = "<group>"; };
 		109FD869198A05CC0018DB42 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		10C0A613198A11FE000B85BA /* project.pbxproj.tpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = project.pbxproj.tpl; sourceTree = "<group>"; };
+		10C0A615198A11FE000B85BA /* HelloWorld-Info.plist.tpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "HelloWorld-Info.plist.tpl"; sourceTree = "<group>"; };
+		10C0A616198A11FE000B85BA /* HelloWorld-Prefix.pch.tpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "HelloWorld-Prefix.pch.tpl"; sourceTree = "<group>"; };
+		10C0A617198A11FE000B85BA /* XFAAppDelegate.h.tpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XFAAppDelegate.h.tpl; sourceTree = "<group>"; };
+		10C0A618198A11FE000B85BA /* XFAAppDelegate.m.tpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XFAAppDelegate.m.tpl; sourceTree = "<group>"; };
+		10C0A619198A11FE000B85BA /* XFAViewController.h.tpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XFAViewController.h.tpl; sourceTree = "<group>"; };
+		10C0A61A198A11FE000B85BA /* XFAViewController.m.tpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XFAViewController.m.tpl; sourceTree = "<group>"; };
+		10C0A61C198A11FE000B85BA /* NSAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSAttributedString.h; sourceTree = "<group>"; };
+		10C0A61D198A11FE000B85BA /* NSParagraphStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSParagraphStyle.h; sourceTree = "<group>"; };
+		10C0A61E198A11FE000B85BA /* UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView.h; sourceTree = "<group>"; };
+		10C0A61F198A11FE000B85BA /* UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewController.h; sourceTree = "<group>"; };
+		10C0A620198A11FE000B85BA /* UIViewControllerTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerTransitioning.h; sourceTree = "<group>"; };
+		10C0A621198A11FE000B85BA /* UIWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWindow.h; sourceTree = "<group>"; };
+		10C0A623198A11FE000B85BA /* UINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationController.h; sourceTree = "<group>"; };
+		10C0A624198A11FE000B85BA /* UITabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITabBarController.h; sourceTree = "<group>"; };
+		10C0A625198A11FE000B85BA /* UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewController.h; sourceTree = "<group>"; };
+		10C0A626198A11FE000B85BA /* UIViewControllerTransitionCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerTransitionCoordinator.h; sourceTree = "<group>"; };
+		10C0A627198A11FE000B85BA /* XFADirectoryReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFADirectoryReaderTests.m; sourceTree = "<group>"; };
+		10C0A629198A11FF000B85BA /* XFAFileReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAFileReaderTests.m; sourceTree = "<group>"; };
+		10C0A62A198A11FF000B85BA /* XFAHeadersParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAHeadersParserTests.m; sourceTree = "<group>"; };
+		10C0A62B198A11FF000B85BA /* XFAMethodSignatureParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAMethodSignatureParserTests.m; sourceTree = "<group>"; };
+		10C0A62C198A11FF000B85BA /* XFAObjcClassParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAObjcClassParserTests.m; sourceTree = "<group>"; };
+		10C0A62D198A11FF000B85BA /* XFAObjcMethodArgumentParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAObjcMethodArgumentParserTests.m; sourceTree = "<group>"; };
+		10C0A62E198A11FF000B85BA /* XFAObjcMethodParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAObjcMethodParserTests.m; sourceTree = "<group>"; };
+		10C0A62F198A11FF000B85BA /* XFAObjcPropertyParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAObjcPropertyParserTests.m; sourceTree = "<group>"; };
+		10C0A630198A11FF000B85BA /* XFATypeEncodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFATypeEncodingTests.m; sourceTree = "<group>"; };
 		1B66F2A20AA8484ABB23FF32 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2340EAEDE8B5403AAF3C41F5 /* Pods-xflowparser.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xflowparser.xcconfig"; path = "Pods/Pods-xflowparser.xcconfig"; sourceTree = "<group>"; };
 		2BD605D3F17E40B9BA81B1AC /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,7 +86,6 @@
 		6003F58A195388D20070C39A /* xflowparser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xflowparser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6003F595195388D20070C39A /* xflowparser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xflowparser-Info.plist"; sourceTree = "<group>"; };
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -87,6 +128,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10C0A611198A11FE000B85BA /* test_subjects */ = {
+			isa = PBXGroup;
+			children = (
+				10C0A612198A11FE000B85BA /* HelloWorld.xcodeproj.dir */,
+				10C0A614198A11FE000B85BA /* HelloWorldSourceFiles */,
+				10C0A61B198A11FE000B85BA /* iOS7 */,
+				10C0A622198A11FE000B85BA /* iOS7.1 */,
+			);
+			path = test_subjects;
+			sourceTree = "<group>";
+		};
+		10C0A612198A11FE000B85BA /* HelloWorld.xcodeproj.dir */ = {
+			isa = PBXGroup;
+			children = (
+				10C0A613198A11FE000B85BA /* project.pbxproj.tpl */,
+			);
+			path = HelloWorld.xcodeproj.dir;
+			sourceTree = "<group>";
+		};
+		10C0A614198A11FE000B85BA /* HelloWorldSourceFiles */ = {
+			isa = PBXGroup;
+			children = (
+				10C0A615198A11FE000B85BA /* HelloWorld-Info.plist.tpl */,
+				10C0A616198A11FE000B85BA /* HelloWorld-Prefix.pch.tpl */,
+				10C0A617198A11FE000B85BA /* XFAAppDelegate.h.tpl */,
+				10C0A618198A11FE000B85BA /* XFAAppDelegate.m.tpl */,
+				10C0A619198A11FE000B85BA /* XFAViewController.h.tpl */,
+				10C0A61A198A11FE000B85BA /* XFAViewController.m.tpl */,
+			);
+			path = HelloWorldSourceFiles;
+			sourceTree = "<group>";
+		};
+		10C0A61B198A11FE000B85BA /* iOS7 */ = {
+			isa = PBXGroup;
+			children = (
+				10C0A61C198A11FE000B85BA /* NSAttributedString.h */,
+				10C0A61D198A11FE000B85BA /* NSParagraphStyle.h */,
+				10C0A61E198A11FE000B85BA /* UIView.h */,
+				10C0A61F198A11FE000B85BA /* UIViewController.h */,
+				10C0A620198A11FE000B85BA /* UIViewControllerTransitioning.h */,
+				10C0A621198A11FE000B85BA /* UIWindow.h */,
+			);
+			path = iOS7;
+			sourceTree = "<group>";
+		};
+		10C0A622198A11FE000B85BA /* iOS7.1 */ = {
+			isa = PBXGroup;
+			children = (
+				10C0A623198A11FE000B85BA /* UINavigationController.h */,
+				10C0A624198A11FE000B85BA /* UITabBarController.h */,
+				10C0A625198A11FE000B85BA /* UIViewController.h */,
+				10C0A626198A11FE000B85BA /* UIViewControllerTransitionCoordinator.h */,
+			);
+			path = iOS7.1;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -114,7 +211,6 @@
 			children = (
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
-				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
 				2BD605D3F17E40B9BA81B1AC /* libPods-Tests.a */,
 				BB39C7B104044DA3BCED9B7F /* libPods-xflowparser.a */,
@@ -150,6 +246,16 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				10C0A611198A11FE000B85BA /* test_subjects */,
+				10C0A627198A11FE000B85BA /* XFADirectoryReaderTests.m */,
+				10C0A629198A11FF000B85BA /* XFAFileReaderTests.m */,
+				10C0A62A198A11FF000B85BA /* XFAHeadersParserTests.m */,
+				10C0A62B198A11FF000B85BA /* XFAMethodSignatureParserTests.m */,
+				10C0A62C198A11FF000B85BA /* XFAObjcClassParserTests.m */,
+				10C0A62D198A11FF000B85BA /* XFAObjcMethodArgumentParserTests.m */,
+				10C0A62E198A11FF000B85BA /* XFAObjcMethodParserTests.m */,
+				10C0A62F198A11FF000B85BA /* XFAObjcPropertyParserTests.m */,
+				10C0A630198A11FF000B85BA /* XFATypeEncodingTests.m */,
 				6003F5BB195388D20070C39A /* Tests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -268,6 +374,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
+				10C0A631198A11FF000B85BA /* project.pbxproj.tpl in Resources */,
+				10C0A632198A11FF000B85BA /* HelloWorld-Info.plist.tpl in Resources */,
+				10C0A634198A11FF000B85BA /* XFAAppDelegate.h.tpl in Resources */,
+				10C0A635198A11FF000B85BA /* XFAAppDelegate.m.tpl in Resources */,
+				10C0A633198A11FF000B85BA /* HelloWorld-Prefix.pch.tpl in Resources */,
+				10C0A637198A11FF000B85BA /* XFAViewController.m.tpl in Resources */,
+				10C0A636198A11FF000B85BA /* XFAViewController.h.tpl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +464,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10C0A63F198A11FF000B85BA /* XFAObjcMethodParserTests.m in Sources */,
+				10C0A63D198A11FF000B85BA /* XFAObjcClassParserTests.m in Sources */,
+				10C0A63B198A11FF000B85BA /* XFAHeadersParserTests.m in Sources */,
+				10C0A63A198A11FF000B85BA /* XFAFileReaderTests.m in Sources */,
+				10C0A638198A11FF000B85BA /* XFADirectoryReaderTests.m in Sources */,
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				10C0A63C198A11FF000B85BA /* XFAMethodSignatureParserTests.m in Sources */,
+				10C0A640198A11FF000B85BA /* XFAObjcPropertyParserTests.m in Sources */,
+				10C0A641198A11FF000B85BA /* XFATypeEncodingTests.m in Sources */,
+				10C0A63E198A11FF000B85BA /* XFAObjcMethodArgumentParserTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

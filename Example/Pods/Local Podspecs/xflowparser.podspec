@@ -28,11 +28,11 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes'
-  s.resources = 'Pod/Assets/*.png'
+  s.source_files = 'Pod/Classes/' , 'Pod/Classes/models/', 'Pod/Classes/parsers'
 
-  #s.public_header_files = 'Pod/Classes/**/*.h'
+  s.resources = 'Pod/Assets/*.png'
+  s.public_header_files  = 'Pod/Classes/*.h' , 'Pod/Classes/models/*.h', 'Pod/Classes/parsers/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'RegExCategories', '~> 1.0'
+
 end

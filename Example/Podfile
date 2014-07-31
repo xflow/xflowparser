@@ -1,11 +1,14 @@
 platform :osx, '10.9'
 inhibit_all_warnings!
 
+
 target 'xflowparser', :exclusive => true do
+  pod 'Mantle', '~> 1.5'
   pod "xflowparser", :path => "../"
 end
 
 target 'Tests', :exclusive => true do
+  pod 'Mantle', '~> 1.5'
   pod "xflowparser", :path => "../"
   pod "Kiwi"
 end
