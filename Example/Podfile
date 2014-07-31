@@ -1,4 +1,5 @@
 platform :osx, '10.9'
+inhibit_all_warnings!
 
 target 'xflowparser', :exclusive => true do
   pod "xflowparser", :path => "../"
@@ -6,6 +7,5 @@ end
 
 target 'Tests', :exclusive => true do
   pod "xflowparser", :path => "../"
-
-  pod 'Kiwi'
+  pod "Kiwi"
 end
