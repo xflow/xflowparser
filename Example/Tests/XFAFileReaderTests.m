@@ -9,6 +9,8 @@
 #import <XCTest/XCTest.h>
 #import <xflowparser/XFAFileReader.h>
 #import <xflowparser/XFAObjcClass.h>
+#import <xflowparser/XFAObjcProperty.h>
+#import <xflowparser/XFAObjcMethod.h>
 
 @interface XFAFileReaderTests : XCTestCase{
     NSString * header_file_UIViewControllerTransitioning;
@@ -225,9 +227,16 @@
 {
     XFAFileReader * reader = XFAFileReader.new;
     XFAObjcClass * klass = [reader classNamed:@"UIView" inFile:[NSURL URLWithString: header_file_UIView]];
+    XFAObjcProperty * p = [klass.properties firstObject];
+    NSLog(@"%@",p.propertyName);
+    XCTAssert(p.propertyName);
+    XFAObjcMethod * m = [klass.methods firstObject];
+    XCTAssert(m.methodName, @"");
     XCTAssertEqual(klass.className,@"UIView", @"bad classname %@",klass.className);
  
     XCTAssertEqualObjects(klass.superClassName,@"UIResponder", @"bad superclassname %@",klass.superClassName);
+    XCTAssertEqual(klass.properties.count, 3, @"class properties should be ");
+    XCTAssertEqual(klass.methods.count, 2, @"class properties should be ");
     XCTAssert(klass , @"UIView class not found in file");
     XCTAssertEqual(klass.className , @"UIView" , @"expected class to be UIView");
     

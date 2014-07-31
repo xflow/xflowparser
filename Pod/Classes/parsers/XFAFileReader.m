@@ -123,7 +123,7 @@
         } else if( [line hasPrefix:@"-"] || [line hasPrefix:@"+"] ){
             unended_line = line;
         } else {
-            NSLog(@"not a method line:#{%@}",line);
+//            NSLog(@"not a method line:#{%@}",line);
         }
     }
     
@@ -195,6 +195,7 @@
     for (NSString * mline in methodLines){
         XFAObjcMethodParser * mp = XFAObjcMethodParser.new;
         XFAObjcMethod * method = [mp parseMethod:mline];
+        NSAssert(method, @"no method for line:%@",mline);
         method.objcClass = objcClass;
         [objcClass.methods addObject:method];
     }
@@ -203,6 +204,7 @@
     for (NSString * pline in propLines){
         XFAObjcPropertyParser * pp = XFAObjcPropertyParser.new;
         XFAObjcProperty * p = [pp parseProperty:pline];
+        NSAssert(p, @"no property for line:%@",pline);
         p.objcClass = objcClass;
         [objcClass.properties addObject:p];
     }
