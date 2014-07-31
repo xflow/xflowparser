@@ -9,6 +9,14 @@
 #import "XFAFileReader.h"
 #import <RegExCategories.h>
 
+#import "XFAObjcClassParser.h"
+#import "XFAObjcClass.h"
+#import "XFAObjcMethodParser.h"
+#import "XFAObjcMethod.h"
+#import "XFAObjcPropertyParser.h"
+#import "XFAObjcProperty.h"
+
+
 @implementation XFAFileReader
 
 
@@ -174,10 +182,32 @@
 
 -(XFAObjcClass*)classNamed:(NSString*)className inFile:(NSURL*)url{
     
-   NSArray * lines = [self linesOfSection:@"interface" sectionName:className sectionCategory:nil file:url];
-    NSAssert(lines && lines.count > 0, @"no lines found for class:%@",className);
+    NSArray * lines = [self linesOfSection:@"interface" sectionName:className sectionCategory:nil file:url];
+    XFAObjcClassParser * cp = XFAObjcClassParser.new;
+    NSDictionary * classesDict =  [self classesDictionaryInLines:lines];
     
-    return nil;
+    NSAssert(lines && lines.count > 0, @"no lines found for class:%@",className);
+    XFAObjcClass * objcClass = XFAObjcClass.new;
+    objcClass.className = className;
+    objcClass.superClassName = [classesDict objectForKey:className];
+
+    NSArray * methodLines = [self filterMethodLines:lines];
+    for (NSString * mline in methodLines){
+        XFAObjcMethodParser * mp = XFAObjcMethodParser.new;
+        XFAObjcMethod * method = [mp parseMethod:mline];
+        method.objcClass = objcClass;
+        [objcClass.methods addObject:method];
+    }
+    
+    NSArray * propLines = [self filterPropertyLines:lines];
+    for (NSString * pline in propLines){
+        XFAObjcPropertyParser * pp = XFAObjcPropertyParser.new;
+        XFAObjcProperty * p = [pp parseProperty:pline];
+        p.objcClass = objcClass;
+        [objcClass.properties addObject:p];
+    }
+    
+    return objcClass;
 }
 
 @end

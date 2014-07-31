@@ -10,6 +10,7 @@
 
 @class XFAObjcMethodArgument;
 @class XFAObjcMethodSignature;
+@class XFAObjcClass;
 
 @interface XFAObjcMethod :  MTLModel <MTLJSONSerializing>
 
@@ -42,6 +43,7 @@
 @property (nonatomic,assign) BOOL isInherited;
 @property (nonatomic,assign) NSInteger childEntryArgumentIndex; //
 
+@property (nonatomic,weak) XFAObjcClass * objcClass;
 
 @property (nonatomic,readonly) NSArray * methodArguments;
 

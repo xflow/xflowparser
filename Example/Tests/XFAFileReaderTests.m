@@ -224,7 +224,10 @@
 -(void)test_retrieval_classWithName
 {
     XFAFileReader * reader = XFAFileReader.new;
-    XFAObjcClass * klass = [reader classNamed:@"UIView" inFile:header_file_UIView];
+    XFAObjcClass * klass = [reader classNamed:@"UIView" inFile:[NSURL URLWithString: header_file_UIView]];
+    XCTAssertEqual(klass.className,@"UIView", @"bad classname %@",klass.className);
+ 
+    XCTAssertEqualObjects(klass.superClassName,@"UIResponder", @"bad superclassname %@",klass.superClassName);
     XCTAssert(klass , @"UIView class not found in file");
     XCTAssertEqual(klass.className , @"UIView" , @"expected class to be UIView");
     

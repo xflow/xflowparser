@@ -7,6 +7,8 @@
 //
 
 #import <Mantle.h>
+@class XFAObjcMethod;
+@class XFAObjcProperty;
 
 @interface XFAObjcClass : MTLModel <MTLJSONSerializing>
 
@@ -18,7 +20,8 @@
 @property (nonatomic, strong) NSString * childrenKey;
 
 
-@property (nonatomic, readonly) NSArray * methods;
-@property (nonatomic, readonly) NSArray * properties;
+@property (nonatomic, readonly) NSMutableArray * methods;
+
+@property (nonatomic, readonly) NSMutableArray * properties;
 
 @end

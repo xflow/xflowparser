@@ -7,6 +7,7 @@
 //
 
 #import <Mantle.h>
+@class XFAObjcClass;
 
 @interface XFAObjcProperty :  MTLModel <MTLJSONSerializing>
 
@@ -39,5 +40,7 @@
 
 @property (nonatomic,strong) NSArray * objcTypeProtocolNames; // conformance
 @property (nonatomic,strong) NSArray * attributes;
+
+@property (nonatomic,weak) XFAObjcClass * objcClass;
 
 @end

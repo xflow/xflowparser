@@ -7,8 +7,23 @@
 //
 
 #import "XFAObjcClass.h"
+@interface XFAObjcClass(){
+    
+}
+
+@end
 
 @implementation XFAObjcClass
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _methods = NSMutableArray.new;
+        _properties = NSMutableArray.new;
+    }
+    return self;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
