@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		109FD8651989F1A90018DB42 /* XFAMainWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 109FD8641989F1A90018DB42 /* XFAMainWC.m */; };
+		109FD86A198A05CC0018DB42 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109FD869198A05CC0018DB42 /* MainMenu.xib */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
-		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* XFAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* XFAAppDelegate.m */; };
@@ -37,6 +37,7 @@
 /* Begin PBXFileReference section */
 		109FD8631989F1A90018DB42 /* XFAMainWC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFAMainWC.h; sourceTree = "<group>"; };
 		109FD8641989F1A90018DB42 /* XFAMainWC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAMainWC.m; sourceTree = "<group>"; };
+		109FD869198A05CC0018DB42 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		1B66F2A20AA8484ABB23FF32 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2340EAEDE8B5403AAF3C41F5 /* Pods-xflowparser.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xflowparser.xcconfig"; path = "Pods/Pods-xflowparser.xcconfig"; sourceTree = "<group>"; };
 		2BD605D3F17E40B9BA81B1AC /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,7 +70,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
-				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
 				D6BFCFFA6E324323AF30E277 /* libPods-xflowparser.a in Frameworks */,
 			);
@@ -133,6 +133,7 @@
 				109FD8641989F1A90018DB42 /* XFAMainWC.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				109FD869198A05CC0018DB42 /* MainMenu.xib */,
 			);
 			path = xflowparser;
 			sourceTree = "<group>";
@@ -260,6 +261,7 @@
 			files = (
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				109FD86A198A05CC0018DB42 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +468,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xflowparser/xflowparser-Prefix.pch";
 				INFOPLIST_FILE = "xflowparser/xflowparser-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -480,6 +483,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xflowparser/xflowparser-Prefix.pch";
 				INFOPLIST_FILE = "xflowparser/xflowparser-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -489,7 +493,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC592C1D7A974E30AD2BA241 /* Pods-Tests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xflowparser.app/xflowparser";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xflowparser.app/Contents/MacOS/xflowparser";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -512,7 +516,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC592C1D7A974E30AD2BA241 /* Pods-Tests.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xflowparser.app/xflowparser";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xflowparser.app/Contents/MacOS/xflowparser";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

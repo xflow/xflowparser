@@ -8,5 +8,4 @@ target 'Tests', :exclusive => true do
   pod "xflowparser", :path => "../"
 
   pod 'Kiwi'
-  pod 'FBSnapshotTestCase'
 end
