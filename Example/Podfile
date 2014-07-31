@@ -1,0 +1,12 @@
+platform :osx, '10.9'
+
+target 'xflowparser', :exclusive => true do
+  pod "xflowparser", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "xflowparser", :path => "../"
+
+  pod 'Kiwi'
+  pod 'FBSnapshotTestCase'
+end
