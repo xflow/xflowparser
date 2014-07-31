@@ -196,6 +196,7 @@
 }
 
 -(void)test_retrieval_classCategoriesInLines{
+
     XFAFileReader * reader = XFAFileReader.new;
     NSArray * lines = [reader linesOfFile:[NSURL URLWithString:header_file_UIView]];
     NSArray * categories = [reader categoriesOfClassNamed:@"UIView" inLines:lines];

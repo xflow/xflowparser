@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		109FD8651989F1A90018DB42 /* XFAMainWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 109FD8641989F1A90018DB42 /* XFAMainWC.m */; };
 		109FD86A198A05CC0018DB42 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109FD869198A05CC0018DB42 /* MainMenu.xib */; };
+		10BEAD48198A1B610081E6C5 /* UINavigationController.h in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A623198A11FE000B85BA /* UINavigationController.h */; };
+		10BEAD49198A1B6B0081E6C5 /* UITabBarController.h in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A624198A11FE000B85BA /* UITabBarController.h */; };
+		10BEAD4A198A1B770081E6C5 /* UIViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A625198A11FE000B85BA /* UIViewController.h */; };
+		10BEAD4B198A1B7E0081E6C5 /* UIViewControllerTransitionCoordinator.h in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A626198A11FE000B85BA /* UIViewControllerTransitionCoordinator.h */; };
+		10BEAD4C198A1B890081E6C5 /* UIWindow.h in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A621198A11FE000B85BA /* UIWindow.h */; };
+		10BEAD4D198A1B8F0081E6C5 /* UIViewControllerTransitioning.h in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A620198A11FE000B85BA /* UIViewControllerTransitioning.h */; };
+		10BEAD4E198A1B970081E6C5 /* UIViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A61F198A11FE000B85BA /* UIViewController.h */; };
+		10BEAD4F198A1B9F0081E6C5 /* UIView.h in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A61E198A11FE000B85BA /* UIView.h */; };
+		10BEAD50198A1BA60081E6C5 /* NSParagraphStyle.h in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A61D198A11FE000B85BA /* NSParagraphStyle.h */; };
+		10BEAD51198A1BAC0081E6C5 /* NSAttributedString.h in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A61C198A11FE000B85BA /* NSAttributedString.h */; };
 		10C0A631198A11FF000B85BA /* project.pbxproj.tpl in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A613198A11FE000B85BA /* project.pbxproj.tpl */; };
 		10C0A632198A11FF000B85BA /* HelloWorld-Info.plist.tpl in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A615198A11FE000B85BA /* HelloWorld-Info.plist.tpl */; };
 		10C0A633198A11FF000B85BA /* HelloWorld-Prefix.pch.tpl in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A616198A11FE000B85BA /* HelloWorld-Prefix.pch.tpl */; };
@@ -60,16 +70,16 @@
 		10C0A618198A11FE000B85BA /* XFAAppDelegate.m.tpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XFAAppDelegate.m.tpl; sourceTree = "<group>"; };
 		10C0A619198A11FE000B85BA /* XFAViewController.h.tpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XFAViewController.h.tpl; sourceTree = "<group>"; };
 		10C0A61A198A11FE000B85BA /* XFAViewController.m.tpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XFAViewController.m.tpl; sourceTree = "<group>"; };
-		10C0A61C198A11FE000B85BA /* NSAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSAttributedString.h; sourceTree = "<group>"; };
-		10C0A61D198A11FE000B85BA /* NSParagraphStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSParagraphStyle.h; sourceTree = "<group>"; };
-		10C0A61E198A11FE000B85BA /* UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView.h; sourceTree = "<group>"; };
-		10C0A61F198A11FE000B85BA /* UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewController.h; sourceTree = "<group>"; };
-		10C0A620198A11FE000B85BA /* UIViewControllerTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerTransitioning.h; sourceTree = "<group>"; };
-		10C0A621198A11FE000B85BA /* UIWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWindow.h; sourceTree = "<group>"; };
-		10C0A623198A11FE000B85BA /* UINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationController.h; sourceTree = "<group>"; };
-		10C0A624198A11FE000B85BA /* UITabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITabBarController.h; sourceTree = "<group>"; };
-		10C0A625198A11FE000B85BA /* UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewController.h; sourceTree = "<group>"; };
-		10C0A626198A11FE000B85BA /* UIViewControllerTransitionCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerTransitionCoordinator.h; sourceTree = "<group>"; };
+		10C0A61C198A11FE000B85BA /* NSAttributedString.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = NSAttributedString.h; sourceTree = "<group>"; };
+		10C0A61D198A11FE000B85BA /* NSParagraphStyle.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = NSParagraphStyle.h; sourceTree = "<group>"; };
+		10C0A61E198A11FE000B85BA /* UIView.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UIView.h; sourceTree = "<group>"; };
+		10C0A61F198A11FE000B85BA /* UIViewController.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UIViewController.h; sourceTree = "<group>"; };
+		10C0A620198A11FE000B85BA /* UIViewControllerTransitioning.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UIViewControllerTransitioning.h; sourceTree = "<group>"; };
+		10C0A621198A11FE000B85BA /* UIWindow.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UIWindow.h; sourceTree = "<group>"; };
+		10C0A623198A11FE000B85BA /* UINavigationController.h */ = {isa = PBXFileReference; explicitFileType = text.rtf; fileEncoding = 4; path = UINavigationController.h; sourceTree = "<group>"; };
+		10C0A624198A11FE000B85BA /* UITabBarController.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UITabBarController.h; sourceTree = "<group>"; };
+		10C0A625198A11FE000B85BA /* UIViewController.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UIViewController.h; sourceTree = "<group>"; };
+		10C0A626198A11FE000B85BA /* UIViewControllerTransitionCoordinator.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UIViewControllerTransitionCoordinator.h; sourceTree = "<group>"; };
 		10C0A627198A11FE000B85BA /* XFADirectoryReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFADirectoryReaderTests.m; sourceTree = "<group>"; };
 		10C0A629198A11FF000B85BA /* XFAFileReaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAFileReaderTests.m; sourceTree = "<group>"; };
 		10C0A62A198A11FF000B85BA /* XFAHeadersParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAHeadersParserTests.m; sourceTree = "<group>"; };
@@ -373,12 +383,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10BEAD49198A1B6B0081E6C5 /* UITabBarController.h in Resources */,
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
 				10C0A631198A11FF000B85BA /* project.pbxproj.tpl in Resources */,
 				10C0A632198A11FF000B85BA /* HelloWorld-Info.plist.tpl in Resources */,
+				10BEAD4E198A1B970081E6C5 /* UIViewController.h in Resources */,
 				10C0A634198A11FF000B85BA /* XFAAppDelegate.h.tpl in Resources */,
+				10BEAD48198A1B610081E6C5 /* UINavigationController.h in Resources */,
+				10BEAD4F198A1B9F0081E6C5 /* UIView.h in Resources */,
+				10BEAD50198A1BA60081E6C5 /* NSParagraphStyle.h in Resources */,
 				10C0A635198A11FF000B85BA /* XFAAppDelegate.m.tpl in Resources */,
+				10BEAD4C198A1B890081E6C5 /* UIWindow.h in Resources */,
+				10BEAD4A198A1B770081E6C5 /* UIViewController.h in Resources */,
+				10BEAD4D198A1B8F0081E6C5 /* UIViewControllerTransitioning.h in Resources */,
 				10C0A633198A11FF000B85BA /* HelloWorld-Prefix.pch.tpl in Resources */,
+				10BEAD51198A1BAC0081E6C5 /* NSAttributedString.h in Resources */,
+				10BEAD4B198A1B7E0081E6C5 /* UIViewControllerTransitionCoordinator.h in Resources */,
 				10C0A637198A11FF000B85BA /* XFAViewController.m.tpl in Resources */,
 				10C0A636198A11FF000B85BA /* XFAViewController.h.tpl in Resources */,
 			);
