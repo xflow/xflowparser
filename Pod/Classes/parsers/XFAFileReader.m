@@ -22,8 +22,8 @@
 
 -(NSArray *)linesOfFile:(NSURL*)url{
     NSError * err = nil;
-    NSString* fileContents = [NSString stringWithContentsOfFile:url.absoluteString encoding:NSASCIIStringEncoding error:&err];
-    NSAssert(!err, @"error reading file %@",url.absoluteString,err.localizedDescription);
+    NSString* fileContents = [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:&err];
+    NSAssert(!err, @"error reading file %@ : %@",url.absoluteString,err);
     NSArray* allLinedStrings = [fileContents componentsSeparatedByCharactersInSet:
      [NSCharacterSet newlineCharacterSet]];
     return allLinedStrings;
@@ -183,11 +183,11 @@
 -(XFAObjcClass*)classNamed:(NSString*)className inFile:(NSURL*)url{
     
     NSArray * lines = [self linesOfSection:@"interface" sectionName:className sectionCategory:nil file:url];
-    XFAObjcClassParser * cp = XFAObjcClassParser.new;
+    XFAObjcClassParser * cp = [XFAObjcClassParser new];
     NSDictionary * classesDict =  [self classesDictionaryInLines:lines];
     
     NSAssert(lines && lines.count > 0, @"no lines found for class:%@",className);
-    XFAObjcClass * objcClass = XFAObjcClass.new;
+    XFAObjcClass * objcClass = [XFAObjcClass new];
     objcClass.className = className;
     objcClass.superClassName = [classesDict objectForKey:className];
 
@@ -196,7 +196,7 @@
         XFAObjcMethodParser * mp = XFAObjcMethodParser.new;
         XFAObjcMethod * method = [mp parseMethod:mline];
         NSAssert(method, @"no method for line:%@",mline);
-        method.objcClass = objcClass;
+//        method.objcClass = objcClass;
         [objcClass.methods addObject:method];
     }
     
@@ -205,7 +205,7 @@
         XFAObjcPropertyParser * pp = XFAObjcPropertyParser.new;
         XFAObjcProperty * p = [pp parseProperty:pline];
         NSAssert(p, @"no property for line:%@",pline);
-        p.objcClass = objcClass;
+//        p.objcClass = objcClass;
         [objcClass.properties addObject:p];
     }
     

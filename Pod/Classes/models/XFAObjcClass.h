@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Mohammed O. Tillawy. All rights reserved.
 //
 
-#import <Mantle.h>
+#import <Mantle/Mantle.h>
 @class XFAObjcMethod;
 @class XFAObjcProperty;
 
@@ -20,8 +20,8 @@
 @property (nonatomic, strong) NSString * childrenKey;
 
 
-@property (nonatomic, readonly) NSMutableArray * methods;
+@property (nonatomic, strong) NSMutableArray * methods;
 
-@property (nonatomic, readonly) NSMutableArray * properties;
+@property (nonatomic, strong) NSMutableArray * properties;
 
 @end

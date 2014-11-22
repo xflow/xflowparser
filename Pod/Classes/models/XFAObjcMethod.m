@@ -27,6 +27,17 @@
     return self;
 }
 
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+             @"signature"       :   @"signature",
+             @"encoding"        :   @"encoding",
+             @"methodName"      :   @"methodName"
+             };
+}
+
+
+
 -(void)addMethodArgument:(XFAObjcMethodArgument*)arg
 {
     _methodArguments = [_methodArguments arrayByAddingObject:arg];

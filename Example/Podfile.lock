@@ -1,15 +1,13 @@
 PODS:
-  - Kiwi (2.3.0)
-  - Mantle (1.5):
-    - Mantle/extobjc (= 1.5)
-  - Mantle/extobjc (1.5)
+  - Mantle (1.5.1):
+    - Mantle/extobjc (= 1.5.1)
+  - Mantle/extobjc (1.5.1)
   - RegExCategories (1.0)
   - xflowparser (0.0.1):
     - RegExCategories (~> 1.0)
 
 DEPENDENCIES:
-  - Kiwi
-  - Mantle (~> 1.5)
+  - Mantle (~> 1.5.1)
   - xflowparser (from `../`)
 
 EXTERNAL SOURCES:
@@ -17,9 +15,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Kiwi: 54bece5b35564d9b8e03c608d926f1a22fcfc589
-  Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
+  Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
   RegExCategories: a6410301023ff81bd047c05fd8691d24ca5c7ea9
-  xflowparser: ed7e14cb3bafc3cdcb86c8337572fd9de5f209c3
+  xflowparser: be52e5d13b1358941853e4a170a4005da445bb50
 
 COCOAPODS: 0.35.0.rc2

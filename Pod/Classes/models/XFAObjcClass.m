@@ -7,6 +7,9 @@
 //
 
 #import "XFAObjcClass.h"
+#import "XFAObjcProperty.h"
+#import "XFAObjcMethod.h"
+
 @interface XFAObjcClass(){
     
 }
@@ -19,8 +22,8 @@
 {
     self = [super init];
     if (self) {
-        _methods = NSMutableArray.new;
-        _properties = NSMutableArray.new;
+        self.methods = NSMutableArray.new;
+        self.properties = NSMutableArray.new;
     }
     return self;
 }
@@ -30,9 +33,21 @@
              @"headerFilePath"  :   @"headerFilePath",
              @"className"       :   @"className",
              @"superClassName"  :   @"superClassName",
-             @"methods"         :   @"methods",
-             @"properties"      :   @"properties",
              };
 }
+
+
+
++ (NSValueTransformer *)propertiesJSONTransformer {
+    Class k = [XFAObjcProperty class];
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:k];
+}
+
+
++ (NSValueTransformer *)methodsJSONTransformer {
+    Class k = [XFAObjcMethod class];
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:k];
+}
+
 
 @end

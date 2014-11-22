@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Mohammed O. Tillawy. All rights reserved.
 //
 
-#import <Mantle.h>
+#import <Mantle/Mantle.h>
 @class XFAObjcClass;
 
 @interface XFAObjcProperty :  MTLModel <MTLJSONSerializing>
@@ -41,6 +41,6 @@
 @property (nonatomic,strong) NSArray * objcTypeProtocolNames; // conformance
 @property (nonatomic,strong) NSArray * attributes;
 
-@property (nonatomic,weak) XFAObjcClass * objcClass;
+//@property (nonatomic,weak,getter = parentObjcClass) XFAObjcClass * objcClass;
 
 @end

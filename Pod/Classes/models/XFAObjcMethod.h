@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Mohammed O. Tillawy. All rights reserved.
 //
 
-#import <Mantle.h>
+#import <Mantle/Mantle.h>
 
 @class XFAObjcMethodArgument;
 @class XFAObjcMethodSignature;
@@ -43,7 +43,7 @@
 @property (nonatomic,assign) BOOL isInherited;
 @property (nonatomic,assign) NSInteger childEntryArgumentIndex; //
 
-@property (nonatomic,weak) XFAObjcClass * objcClass;
+//@property (nonatomic,weak) XFAObjcClass * objcClass;
 
 @property (nonatomic,readonly) NSArray * methodArguments;
 

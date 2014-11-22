@@ -43,7 +43,7 @@
 
 -(void)testFilteredClassesLines{
     XFAFileReader * reader = XFAFileReader.new;
-    NSArray * linesOfFile = [reader linesOfFile:[NSURL URLWithString:header_file_UIView]];
+    NSArray * linesOfFile = [reader linesOfFile:[NSURL fileURLWithPath:header_file_UIView]];
     XFAHeadersParser * parser = XFAHeadersParser.new;
    NSArray * output = [parser filteredClassesLines:linesOfFile];
     XCTAssertEqualObjects(output, @[@"NS_CLASS_AVAILABLE_IOS(2_0) @interface UIView : UIResponder<NSCoding, UIAppearance, UIAppearanceContainer, UIDynamicItem> {"], @"interface line in UIView.h" );
