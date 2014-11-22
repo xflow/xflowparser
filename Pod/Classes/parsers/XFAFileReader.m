@@ -164,7 +164,7 @@
     NSMutableDictionary * dic = [NSMutableDictionary dictionary];
     for (NSString * line in lines) {
         if ([line isMatch:RX(@"@interface[ \\t]+[A-Z][a-zA-Z0-9_]*[ \\t]?:")]) {
-            NSString * pattern = @"@interface[ \\t]+([a-zA-Z]*)[ \\t]*:[ \\t]*([a-zA-Z]*)";
+            NSString * pattern = @"@interface[ \\t]+([a-zA-Z0-9_]*)[ \\t]*:[ \\t]*([a-zA-Z0-9_]*)";
             RxMatch * match = [line firstMatchWithDetails:RX(pattern)];
             RxMatchGroup * grp1 = [match.groups objectAtIndex:1];
             RxMatchGroup * grp2 = [match.groups objectAtIndex:2];

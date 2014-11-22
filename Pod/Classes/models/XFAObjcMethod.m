@@ -9,6 +9,7 @@
 #import "XFAObjcMethod.h"
 #import "XFAObjcMethodSignatureParser.h"
 #import "XFAObjcMethodSignature.h"
+#import "XFAObjcMethodArgument.h"
 
 @interface XFAObjcMethod(){
     
@@ -34,6 +35,14 @@
              @"encoding"        :   @"encoding",
              @"methodName"      :   @"methodName"
              };
+}
+
+
+
+
++ (NSValueTransformer *)methodArgumentsJSONTransformer {
+    Class k = [XFAObjcMethodArgument class];
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:k];
 }
 
 

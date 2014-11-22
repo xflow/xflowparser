@@ -14,9 +14,14 @@
 {
     self = [super init];
     if (self) {
-        _objcProtocolNames = NSArray.new;
+        self.objcProtocolNames = NSArray.new;
     }
     return self;
+}
+
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{ };
 }
 
 @end
