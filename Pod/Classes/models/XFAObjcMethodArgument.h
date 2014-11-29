@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Mohammed O. Tillawy. All rights reserved.
 //
 
-#import <Mantle.h>
+#import "XFAModel.h"
 
 #import "XFAObjcPointerType.h"
 
 
-@interface XFAObjcMethodArgument :  MTLModel <MTLJSONSerializing>
+@interface XFAObjcMethodArgument :  XFAModel
 
 @property (nonatomic, strong) NSString * argumentName;
 @property (nonatomic, strong) NSString * variableName;

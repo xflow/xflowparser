@@ -35,13 +35,20 @@
     
     XFAFileReader * reader = [XFAFileReader new];
     
-    NSString * str = [[NSBundle bundleForClass:self.class] pathForResource:@"UIView.h" ofType:nil];
+    NSString * tplfFileName = @"XFAViewController.h.tpl";
+    NSString * str = [[NSBundle bundleForClass:self.class] pathForResource:tplfFileName ofType:nil];
     NSURL * url = [NSURL fileURLWithPath:str];
-    XFAObjcClass * klass = [reader classNamed:@"UIView" inFile:url];
+    XFAObjcClass * klass = [reader classNamed:@"XFAViewController" inFile:url];
 //    NSLog(@"klass:%@",klass);
     NSDictionary * jsonDictionary = [MTLJSONAdapter JSONDictionaryFromModel:klass];
-    NSLog(@"jsonDictionary:%@",jsonDictionary);
+//    NSLog(@"jsonDictionary:%@",jsonDictionary);
     XCTAssert(jsonDictionary);
+    
+    NSError * err = nil;
+    NSData * data = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:NSJSONWritingPrettyPrinted error:&err];
+    NSString * jsongString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    NSLog(@"jsongString:\n\n\n %@ \n\n\n",jsongString);
+    XCTAssert(jsongString);
     
 }
 

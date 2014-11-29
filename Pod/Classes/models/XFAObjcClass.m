@@ -33,6 +33,7 @@
              @"headerFilePath"  :   @"headerFilePath",
              @"className"       :   @"className",
              @"superClassName"  :   @"superClassName",
+             @"isSubclassesCrawlable" : NSNull.null,
              };
 }
 

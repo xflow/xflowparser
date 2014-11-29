@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Mohammed O. Tillawy. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import "XFAModel.h"
 @class XFAObjcMethod;
 @class XFAObjcProperty;
 
-@interface XFAObjcClass : MTLModel <MTLJSONSerializing>
+@interface XFAObjcClass : XFAModel
 
 @property (nonatomic, strong) NSString * headerFilePath;
 @property (nonatomic, strong) NSString * className;

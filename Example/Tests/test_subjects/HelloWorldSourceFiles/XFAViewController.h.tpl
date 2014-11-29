@@ -10,4 +10,12 @@
 
 @interface XFAViewController : UIViewController
 
+@property (nonatomic,weak) IBOutlet UILabel *labelConnected;
+
+- (IBAction)actionSlider:(id)sender;
+
+-(IBAction)actionButton:(id)sender event:(UIEvent*)event;
+
+-(void)dislayText;
+
 @end

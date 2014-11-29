@@ -17,7 +17,7 @@
 
 -(XFAObjcMethodSignature*)parseMethod:(XFAObjcMethod*)method;
 {
-    XFAObjcMethodSignature * signature = XFAObjcMethodSignature.new;
+    XFAObjcMethodSignature * signature = [XFAObjcMethodSignature new];
 
     
     NSInteger counter = 4;

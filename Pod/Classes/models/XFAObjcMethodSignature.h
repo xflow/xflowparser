@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Mohammed O. Tillawy. All rights reserved.
 //
 
-#import <Mantle.h>
+#import "XFAModel.h"
 
 
-@interface XFAObjcMethodSignature : MTLModel <MTLJSONSerializing>
+@interface XFAObjcMethodSignature : XFAModel
 
 @property (nonatomic,strong) NSString * signatureName;
 

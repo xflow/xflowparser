@@ -14,6 +14,10 @@
 @interface XFAObjcMethod(){
     
 }
+@property (nonatomic,strong) XFAObjcMethodSignature * methodSignature;
+@property (nonatomic,strong) NSArray * methodArguments;
+@property (nonatomic,strong) NSString * signature;
+@property (nonatomic,strong) NSString * encoding;
 
 @end
 
@@ -23,7 +27,7 @@
 {
     self = [super init];
     if (self) {
-        _methodArguments = [NSArray array];
+        self.methodArguments = [NSArray array];
     }
     return self;
 }
@@ -31,12 +35,31 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"signature"       :   @"signature",
-             @"encoding"        :   @"encoding",
-             @"methodName"      :   @"methodName"
+             @"isInterceptable" : NSNull.null
              };
 }
 
+-(void)setMethodName:(NSString *)methodName{
+    _methodName = methodName;
+    [self generateMethodSignature];
+}
+
+-(void)setMethodArguments:(NSArray *)methodArguments{
+    _methodArguments = methodArguments;
+}
+
+-(void)generateMethodSignature{
+    XFAObjcMethodSignatureParser * parser = [XFAObjcMethodSignatureParser new];
+    self.methodSignature = [parser parseMethod:self];
+    self.signature = self.methodSignature.signatureName;
+    self.encoding =  self.methodSignature.signatureEncoding;
+}
+
+
++ (NSValueTransformer *)methodSignatureJSONTransformer {
+    Class k = [XFAObjcMethodSignature class];
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:k];
+}
 
 
 
@@ -50,16 +73,16 @@
 -(void)addMethodArgument:(XFAObjcMethodArgument*)arg
 {
     _methodArguments = [_methodArguments arrayByAddingObject:arg];
+    [self generateMethodSignature];
 }
 
-
+/*
 -(XFAObjcMethodSignature *)methodSignature
 {
-    XFAObjcMethodSignatureParser * parser = XFAObjcMethodSignatureParser.new;
+    XFAObjcMethodSignatureParser * parser = [XFAObjcMethodSignatureParser new];
     XFAObjcMethodSignature * sign = [parser parseMethod:self];
     return sign;
 }
-
 
 -(NSString*)signature{
     return self.methodSignature.signatureName;
@@ -68,6 +91,7 @@
 -(NSString*)encoding{
     return self.methodSignature.signatureEncoding;
 }
+*/
 
 
 @end

@@ -32,7 +32,7 @@
     "(<[a-zA-Z0-9_,]*>)?"
     "[ \\t]*([A-Za-z0-9_]*)";
     
-    property.isBlockPointer = [str isMatch:RX(@"^")];
+    property.isBlockPointer = [str isMatch:RX(@"\\^")];
     
     RxMatch * matchAttributes = [str firstMatchWithDetails:RX(pattern)];
     

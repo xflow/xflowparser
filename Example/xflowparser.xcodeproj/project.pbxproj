@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		106D15E51A20496F00924895 /* XFAObjcClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 106D15E41A20496F00924895 /* XFAObjcClassTests.m */; };
+		106D15E71A285E9900924895 /* XFAObjcMethodTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 106D15E61A285E9900924895 /* XFAObjcMethodTests.m */; };
 		109FD8651989F1A90018DB42 /* XFAMainWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 109FD8641989F1A90018DB42 /* XFAMainWC.m */; };
 		109FD86A198A05CC0018DB42 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109FD869198A05CC0018DB42 /* MainMenu.xib */; };
 		10BEAD48198A1B610081E6C5 /* UINavigationController.h in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A623198A11FE000B85BA /* UINavigationController.h */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		106D15E41A20496F00924895 /* XFAObjcClassTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAObjcClassTests.m; sourceTree = "<group>"; };
+		106D15E61A285E9900924895 /* XFAObjcMethodTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAObjcMethodTests.m; sourceTree = "<group>"; };
 		109FD8631989F1A90018DB42 /* XFAMainWC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFAMainWC.h; sourceTree = "<group>"; };
 		109FD8641989F1A90018DB42 /* XFAMainWC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAMainWC.m; sourceTree = "<group>"; };
 		109FD869198A05CC0018DB42 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				10C0A630198A11FF000B85BA /* XFATypeEncodingTests.m */,
 				10DF6CDC1A1F767F00EE293E /* XFAObjcPropertyTests.m */,
 				106D15E41A20496F00924895 /* XFAObjcClassTests.m */,
+				106D15E61A285E9900924895 /* XFAObjcMethodTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -507,6 +510,7 @@
 				10C0A63C198A11FF000B85BA /* XFAMethodSignatureParserTests.m in Sources */,
 				106D15E51A20496F00924895 /* XFAObjcClassTests.m in Sources */,
 				10DF6CDD1A1F767F00EE293E /* XFAObjcPropertyTests.m in Sources */,
+				106D15E71A285E9900924895 /* XFAObjcMethodTests.m in Sources */,
 				10C0A640198A11FF000B85BA /* XFAObjcPropertyParserTests.m in Sources */,
 				10C0A641198A11FF000B85BA /* XFATypeEncodingTests.m in Sources */,
 				10C0A63E198A11FF000B85BA /* XFAObjcMethodArgumentParserTests.m in Sources */,

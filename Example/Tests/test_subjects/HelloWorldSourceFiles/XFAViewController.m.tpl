@@ -26,4 +26,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (IBAction)actionSwitch:(id)sender {
+    NSLog(@"MTViewController actionSwitch");
+}
+
+
+- (IBAction)actionSlider:(id)sender {
+    NSLog(@"MTViewController actionSlider");
+}
+
+- (IBAction)actionButton:(id)sender {
+    NSLog(@"MTViewController actionButton %@",sender);
+}
+
+
 @end

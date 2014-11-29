@@ -16,7 +16,7 @@
 
 -(XFAObjcMethod*)parseMethod:(NSString*)str
 {
-    XFAObjcMethod * method = XFAObjcMethod.new;
+    XFAObjcMethod * method = [XFAObjcMethod new];
     
     NSString * pattern = @"^[ \\t]*([-+])[ \\t]*\\(([a-zA-Z0-9\\* <>]*)\\)[ \\t]*([a-zA-Z0-9]*)(.*)$";;
     RxMatch * match = [str firstMatchWithDetails:RX(pattern)];

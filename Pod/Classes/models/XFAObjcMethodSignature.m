@@ -12,5 +12,12 @@
 
 
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+             @"" : @""
+             };
+}
+
+
 
 @end

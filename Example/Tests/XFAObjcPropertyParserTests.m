@@ -335,7 +335,7 @@
     XCTAssert(property.isNSObject,@"");
     XCTAssertFalse(property.isDeprecated, "");
     XCTAssertFalse(property.isOnlyIOS, @"");
-    XCTAssert(property.isBlockPointer, @"");
+    XCTAssertFalse(property.isBlockPointer, @"");
     XCTAssertNil(property.iosAvailableFromVersion , @"");
     XCTAssertNil(property.iosAvailableToVersion, @"");
 }
