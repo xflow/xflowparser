@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/xflowapp'
 
   s.osx.deployment_target = '10.10'
+  s.ios.deployment_target = '8.0'
 
   s.requires_arc = true
 
@@ -33,6 +34,16 @@ Pod::Spec.new do |s|
   s.resources = 'Pod/Assets/*.png'
   s.public_header_files  = 'Pod/Classes/*.h' , 'Pod/Classes/models/*.h', 'Pod/Classes/parsers/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'RegExCategories', '~> 1.0'
+
+  s.subspec "Parser" do |sp|
+    sp.source_files = "Classes/models/"
+    s.dependency 'Mantle', '~> 1.5.1'
+  end
+
+  s.subspec "Models" do |sp|
+    sp.source_files = "Classes/parsers/"
+    s.dependency 'RegExCategories', '~> 1.0'
+  end
+
 
 end

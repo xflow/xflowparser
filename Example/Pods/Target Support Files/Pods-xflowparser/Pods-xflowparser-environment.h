@@ -30,3 +30,15 @@
 #define COCOAPODS_VERSION_MINOR_xflowparser 0
 #define COCOAPODS_VERSION_PATCH_xflowparser 1
 
+// xflowparser/Models
+#define COCOAPODS_POD_AVAILABLE_xflowparser_Models
+#define COCOAPODS_VERSION_MAJOR_xflowparser_Models 0
+#define COCOAPODS_VERSION_MINOR_xflowparser_Models 0
+#define COCOAPODS_VERSION_PATCH_xflowparser_Models 1
+
+// xflowparser/Parser
+#define COCOAPODS_POD_AVAILABLE_xflowparser_Parser
+#define COCOAPODS_VERSION_MAJOR_xflowparser_Parser 0
+#define COCOAPODS_VERSION_MINOR_xflowparser_Parser 0
+#define COCOAPODS_VERSION_PATCH_xflowparser_Parser 1
+

@@ -4,6 +4,15 @@ PODS:
   - Mantle/extobjc (1.5.1)
   - RegExCategories (1.0)
   - xflowparser (0.0.1):
+    - Mantle (~> 1.5.1)
+    - RegExCategories (~> 1.0)
+    - xflowparser/Models (= 0.0.1)
+    - xflowparser/Parser (= 0.0.1)
+  - xflowparser/Models (0.0.1):
+    - Mantle (~> 1.5.1)
+    - RegExCategories (~> 1.0)
+  - xflowparser/Parser (0.0.1):
+    - Mantle (~> 1.5.1)
     - RegExCategories (~> 1.0)
 
 DEPENDENCIES:
@@ -17,6 +26,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
   RegExCategories: a6410301023ff81bd047c05fd8691d24ca5c7ea9
-  xflowparser: be52e5d13b1358941853e4a170a4005da445bb50
+  xflowparser: 2a9e5ab6d334444667ce92e808c5e9ce531688e0
 
 COCOAPODS: 0.35.0
