@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		106D15E51A20496F00924895 /* XFAObjcClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 106D15E41A20496F00924895 /* XFAObjcClassTests.m */; };
 		106D15E71A285E9900924895 /* XFAObjcMethodTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 106D15E61A285E9900924895 /* XFAObjcMethodTests.m */; };
-		109FD8651989F1A90018DB42 /* XFAMainWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 109FD8641989F1A90018DB42 /* XFAMainWC.m */; };
+		109FD8651989F1A90018DB42 /* XFPMainWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 109FD8641989F1A90018DB42 /* XFPMainWC.m */; };
 		109FD86A198A05CC0018DB42 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109FD869198A05CC0018DB42 /* MainMenu.xib */; };
 		10BEAD48198A1B610081E6C5 /* UINavigationController.h in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A623198A11FE000B85BA /* UINavigationController.h */; };
 		10BEAD49198A1B6B0081E6C5 /* UITabBarController.h in Resources */ = {isa = PBXBuildFile; fileRef = 10C0A624198A11FE000B85BA /* UITabBarController.h */; };
@@ -42,7 +42,7 @@
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
-		6003F59E195388D20070C39A /* XFAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* XFAAppDelegate.m */; };
+		6003F59E195388D20070C39A /* XFPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* XFPAppDelegate.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -64,8 +64,8 @@
 /* Begin PBXFileReference section */
 		106D15E41A20496F00924895 /* XFAObjcClassTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAObjcClassTests.m; sourceTree = "<group>"; };
 		106D15E61A285E9900924895 /* XFAObjcMethodTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAObjcMethodTests.m; sourceTree = "<group>"; };
-		109FD8631989F1A90018DB42 /* XFAMainWC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFAMainWC.h; sourceTree = "<group>"; };
-		109FD8641989F1A90018DB42 /* XFAMainWC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAMainWC.m; sourceTree = "<group>"; };
+		109FD8631989F1A90018DB42 /* XFPMainWC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFPMainWC.h; sourceTree = "<group>"; };
+		109FD8641989F1A90018DB42 /* XFPMainWC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFPMainWC.m; sourceTree = "<group>"; };
 		109FD869198A05CC0018DB42 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		10C0A613198A11FE000B85BA /* project.pbxproj.tpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = project.pbxproj.tpl; sourceTree = "<group>"; };
 		10C0A615198A11FE000B85BA /* HelloWorld-Info.plist.tpl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "HelloWorld-Info.plist.tpl"; sourceTree = "<group>"; };
@@ -108,8 +108,8 @@
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6003F59B195388D20070C39A /* xflowparser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xflowparser-Prefix.pch"; sourceTree = "<group>"; };
-		6003F59C195388D20070C39A /* XFAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFAAppDelegate.h; sourceTree = "<group>"; };
-		6003F59D195388D20070C39A /* XFAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFAAppDelegate.m; sourceTree = "<group>"; };
+		6003F59C195388D20070C39A /* XFPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFPAppDelegate.h; sourceTree = "<group>"; };
+		6003F59D195388D20070C39A /* XFPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFPAppDelegate.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -236,10 +236,10 @@
 		6003F593195388D20070C39A /* xflowparser */ = {
 			isa = PBXGroup;
 			children = (
-				6003F59C195388D20070C39A /* XFAAppDelegate.h */,
-				6003F59D195388D20070C39A /* XFAAppDelegate.m */,
-				109FD8631989F1A90018DB42 /* XFAMainWC.h */,
-				109FD8641989F1A90018DB42 /* XFAMainWC.m */,
+				6003F59C195388D20070C39A /* XFPAppDelegate.h */,
+				6003F59D195388D20070C39A /* XFPAppDelegate.m */,
+				109FD8631989F1A90018DB42 /* XFPMainWC.h */,
+				109FD8641989F1A90018DB42 /* XFPMainWC.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 				109FD869198A05CC0018DB42 /* MainMenu.xib */,
@@ -358,7 +358,7 @@
 		6003F582195388D10070C39A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = XFA;
+				CLASSPREFIX = XFP;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Mohammed O. Tillawy";
 				TargetAttributes = {
@@ -492,9 +492,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F59E195388D20070C39A /* XFAAppDelegate.m in Sources */,
+				6003F59E195388D20070C39A /* XFPAppDelegate.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				109FD8651989F1A90018DB42 /* XFAMainWC.m in Sources */,
+				109FD8651989F1A90018DB42 /* XFPMainWC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

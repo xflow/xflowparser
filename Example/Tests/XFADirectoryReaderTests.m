@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <xflowparser/XFADirectoryReader.h>
+#import <xflowparser/XFPDirectoryReader.h>
 
 
 @interface XFADirectoryReaderTests : XCTestCase
@@ -32,7 +32,7 @@
 {
     NSString * dir = @"/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/UIKit.framework/Headers";
     NSURL * dirUrl = [NSURL URLWithString:dir];
-    NSArray * arr = [XFADirectoryReader headersUrlsInDirWithUrl:dirUrl];
+    NSArray * arr = [XFPDirectoryReader headersUrlsInDirWithUrl:dirUrl];
     XCTAssertEqual(arr.count, 137, @"count expected to b 136");
     
 }

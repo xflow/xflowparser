@@ -7,8 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <xflowparser/XFAFileReader.h>
-#import <xflowparser/XFAHeadersParser.h>
+#import <xflowparser/XFPFileReader.h>
+#import <xflowparser/XFPHeadersParser.h>
 
 @interface XFAHeadersParserTests : XCTestCase
 {
@@ -42,9 +42,9 @@
 
 
 -(void)testFilteredClassesLines{
-    XFAFileReader * reader = XFAFileReader.new;
+    XFPFileReader * reader = [XFPFileReader new];
     NSArray * linesOfFile = [reader linesOfFile:[NSURL fileURLWithPath:header_file_UIView]];
-    XFAHeadersParser * parser = XFAHeadersParser.new;
+    XFPHeadersParser * parser = [XFPHeadersParser new];
    NSArray * output = [parser filteredClassesLines:linesOfFile];
     XCTAssertEqualObjects(output, @[@"NS_CLASS_AVAILABLE_IOS(2_0) @interface UIView : UIResponder<NSCoding, UIAppearance, UIAppearanceContainer, UIDynamicItem> {"], @"interface line in UIView.h" );
 }

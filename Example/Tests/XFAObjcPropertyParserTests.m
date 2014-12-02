@@ -7,8 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <xflowparser/XFAObjcPropertyParser.h>
-#import <xflowparser/XFAObjcProperty.h>
+#import <xflowparser/XFPObjcPropertyParser.h>
+#import <xflowparser/XFPObjcProperty.h>
 
 @interface XFAObjcPropertyParserTests : XCTestCase
 
@@ -34,8 +34,8 @@
 - (void)testPraseScalarProperty
 {
     NSString * p = @"@property(nonatomic,retain)		  CGRect            contentStretch NS_DEPRECATED_IOS(3_0,6_0);";
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"CGRect", @"");
     XCTAssertEqualObjects(property.propertyName, @"contentStretch", @"");
@@ -52,8 +52,8 @@
 {
     NSString * p = @"@property		  CGRect            contentStretch NS_DEPRECATED_IOS(3_0,6_0);"
 ;
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"CGRect", @"");
     XCTAssertEqualObjects(property.propertyName, @"contentStretch", @"");
@@ -71,8 +71,8 @@
 {
     NSString * p = @"@property (nonatomic,retain) UIColor *tintColor;";
     
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"UIColor *", @"");
     XCTAssertEqualObjects(property.propertyName, @"tintColor", @"");
@@ -91,8 +91,8 @@
 {
     NSString * p = @"@property (nonatomic,retain) UIColor *tintColor NS_AVAILABLE_IOS(7_0);";
 
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"UIColor *", @"");
     XCTAssertEqualObjects(property.propertyName, @"tintColor", @"");
@@ -112,8 +112,8 @@
 {
     NSString * p = @"@property (readonly, NS_NONATOMIC_IOSONLY) NSArray *textContainers;";
     
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"NSArray *" , @"");
     XCTAssertEqualObjects(property.propertyName, @"textContainers", @"");
@@ -131,8 +131,8 @@
 {
     NSString * p = @"@property (nonatomic,readwrite) CGSize contentSizeForViewInPopover NS_DEPRECATED_IOS(3_2, 7_0, \"Use UIViewController.preferredContentSize instead.\");";
     
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"CGSize", @"");
     XCTAssertEqualObjects(property.propertyName, @"contentSizeForViewInPopover", @"");
@@ -148,8 +148,8 @@
 {
     NSString * p = @"@property(nonatomic, readonly, retain) UILabel* textLabel;";
     
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"UILabel *", @"");
     XCTAssertEqualObjects(property.propertyName, @"textLabel", @"");
@@ -165,8 +165,8 @@
 {
     NSString * p = @"@property(nonatomic, readonly, retain) UILabel* detailTextLabel; // only supported for headers in grouped style";
     
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"UILabel *", @"");
     XCTAssertEqualObjects(property.propertyName, @"detailTextLabel", @"");
@@ -183,8 +183,8 @@
 {
     NSString * p = @"@property (readonly, assign) id firstItem;";
     
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"id", @"");
     XCTAssertEqualObjects(property.propertyName, @"firstItem", @"");
@@ -202,8 +202,8 @@
     NSString * p = @"@property(assign, NS_NONATOMIC_IOSONLY) id <NSLayoutManagerDelegate> delegate;";
 
     
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"id", @"");
     XCTAssertEqualObjects(property.propertyName, @"delegate", @"");
@@ -222,8 +222,8 @@
     NSString * p = @"@property(assign, NS_NONATOMIC_IOSONLY) id <NSLayoutManagerDelegate,NSLayoutManagerSomething> delegate;";
     
     
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"id", @"");
     XCTAssertEqualObjects(property.propertyName, @"delegate", @"");
@@ -242,8 +242,8 @@
     NSString * p = @"@property(readonly) float hyphenationFactor;";
     
     
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"float", @"");
     XCTAssertEqualObjects(property.propertyName, @"hyphenationFactor", @"");
@@ -262,8 +262,8 @@
     NSString * p = @"@property(nonatomic,assign) id /*<UIAlertViewDelegate>*/ delegate;    // weak reference";
     
     
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"id", @"");
     XCTAssertEqualObjects(property.propertyName, @"delegate", @"");
@@ -282,8 +282,8 @@
     NSString * p = @"@property (nonatomic, readonly, getter = isRunning) BOOL running;";
     
     
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"BOOL", @"");
     XCTAssertEqualObjects(property.propertyName, @"running", @"");
@@ -303,8 +303,8 @@
     NSString * p = @"@property (nonatomic,copy) void (^action)(void);";
     
     
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"void", @"");
 //    XCTAssertEqualObjects(property.propertyName, @"running", @"");
@@ -325,8 +325,8 @@
     NSString * p = @"@property(nonatomic,assign)    id <UINavigationControllerDelegate, UIImagePickerControllerDelegate> delegate;";
     
     
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     
     XCTAssertEqualObjects(property.objcType, @"id", @"");
     XCTAssertEqualObjects(property.propertyName, @"delegate", @"");

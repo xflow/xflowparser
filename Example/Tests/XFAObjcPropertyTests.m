@@ -8,8 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
-#import "XFAObjcProperty.h"
-#import "XFAObjcPropertyParser.h"
+#import "XFPObjcProperty.h"
+#import "XFPObjcPropertyParser.h"
 #import <Mantle/Mantle.h>
 
 @interface XFAObjcPropertyTests : XCTestCase
@@ -30,15 +30,15 @@
 
 - (void)testExample {
     // This is an example of a functional test case.
-    XCTAssert([[XFAObjcProperty class] isSubclassOfClass:[MTLModel class]]);
-    XCTAssert([[XFAObjcProperty class] conformsToProtocol:@protocol(MTLJSONSerializing)]);
+    XCTAssert([[XFPObjcProperty class] isSubclassOfClass:[MTLModel class]]);
+    XCTAssert([[XFPObjcProperty class] conformsToProtocol:@protocol(MTLJSONSerializing)]);
 }
 
 - (void)testJsonGeneration
 {
     NSString * p = @"@property(nonatomic,retain)		  CGRect            contentStretch NS_DEPRECATED_IOS(3_0,6_0);";
-    XFAObjcPropertyParser * parser = XFAObjcPropertyParser.new;
-    XFAObjcProperty * property = [parser parseProperty:p];
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
     NSDictionary * jsonDictionary = [MTLJSONAdapter JSONDictionaryFromModel:property];
     NSLog(@"jsonDictionary:%@",jsonDictionary);
     XCTAssert(jsonDictionary);

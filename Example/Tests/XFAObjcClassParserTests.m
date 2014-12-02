@@ -7,8 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <xflowparser/XFAObjcClassParser.h>
-#import <xflowparser/XFAFileReader.h>
+#import <xflowparser/XFPObjcClassParser.h>
+#import <xflowparser/XFPFileReader.h>
 
 
 @interface XFAObjcClassParserTests : XCTestCase
@@ -49,7 +49,7 @@
 
 - (void)testParsingClassNameFromFileName
 {
-    XFAObjcClassParser * parser = XFAObjcClassParser.new;
+    XFPObjcClassParser * parser = [XFPObjcClassParser new];
     NSString * output = [parser classNameFromFilename:@"./test/test_subjects/iOS7/UIView.h"];
     XCTAssertEqualObjects(output, @"UIView", @"output should equal %@",@"UIView");
 }
@@ -57,7 +57,7 @@
 
 
 -(void)testPrasingCategoryName{
-    XFAObjcClassParser * parser = XFAObjcClassParser.new;
+    XFPObjcClassParser * parser = [XFPObjcClassParser new];
     NSString * output = [parser categoryNameForInterfaceLine:@"@interface UIView(UIViewRendering)"];
     XCTAssertEqualObjects(output, @"UIViewRendering", @"should get the category of a an interface line");
 }
@@ -65,7 +65,7 @@
 
 -(void)testPrasingCategoryName2
 {
-    XFAObjcClassParser * parser = XFAObjcClassParser.new;
+    XFPObjcClassParser * parser = [XFPObjcClassParser new];
     NSString * output = [parser categoryNameForInterfaceLine:@"NS_CLASS_AVAILABLE_IOS(2_0) @interface UIView : UIResponder<NSCoding, UIAppearance, UIAppearanceContainer, UIDynamicItem>"];
     XCTAssertNil(output, @"should get nil of a an interface main line NOT:( %@ )" ,output);
 }
@@ -73,14 +73,14 @@
 -(void)testParsingProtocolNames
 {
     NSString * li = @"NS_CLASS_AVAILABLE_IOS(2_0) @interface UIView : UIResponder<NSCoding, UIAppearance, UIAppearanceContainer, UIDynamicItem>";
-    XFAObjcClassParser * parser = XFAObjcClassParser.new;
+    XFPObjcClassParser * parser = [XFPObjcClassParser new];
     NSArray * output = [parser protocolNamesForInterfaceLine:li];
 //    NSArray * expectedOutput = @[ @"NSCoding", @"UIAppearance", @"UIAppearanceContainer", @"UIDynamicItem"];
     XCTAssertEqualObjects(output, (@[ @"NSCoding", @"UIAppearance", @"UIAppearanceContainer", @"UIDynamicItem"]),  @"protocol names" );
 }
 
 -(void)testParsingClassName{
-    XFAObjcClassParser * parser = XFAObjcClassParser.new;
+    XFPObjcClassParser * parser = [XFPObjcClassParser new];
     NSString * li = @"NS_CLASS_AVAILABLE_IOS(2_0) @interface UIView : UIResponder<NSCoding, UIAppearance, UIAppearanceContainer, UIDynamicItem>";
     NSString * className = [parser classNameForInterfaceLine:li];
     XCTAssertEqualObjects(className, @"UIView", @"should get protocols of UIView");

@@ -9,9 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
 #import <Mantle/Mantle.h>
-#import "XFAObjcClassParser.h"
-#import "XFAFileReader.h"
-#import "XFAObjcClass.h"
+#import "XFPObjcClassParser.h"
+#import "XFPFileReader.h"
+#import "XFPObjcClass.h"
 
 @interface XFAObjcClassTests : XCTestCase
 
@@ -33,12 +33,12 @@
 - (void)testJsonGeneration
 {
     
-    XFAFileReader * reader = [XFAFileReader new];
+    XFPFileReader * reader = [XFPFileReader new];
     
     NSString * tplfFileName = @"XFAViewController.h.tpl";
     NSString * str = [[NSBundle bundleForClass:self.class] pathForResource:tplfFileName ofType:nil];
     NSURL * url = [NSURL fileURLWithPath:str];
-    XFAObjcClass * klass = [reader classNamed:@"XFAViewController" inFile:url];
+    XFPObjcClass * klass = [reader classNamed:@"XFAViewController" inFile:url];
 //    NSLog(@"klass:%@",klass);
     NSDictionary * jsonDictionary = [MTLJSONAdapter JSONDictionaryFromModel:klass];
 //    NSLog(@"jsonDictionary:%@",jsonDictionary);

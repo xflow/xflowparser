@@ -7,8 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <xflowparser/XFAObjcMethod.h>
-#import <xflowparser/XFAObjcMethodParser.h>
+#import <xflowparser/XFPObjcMethod.h>
+#import <xflowparser/XFPObjcMethodParser.h>
 
 @interface XFAObjcMethodParserTests : XCTestCase
 
@@ -32,8 +32,8 @@
 {
     
     NSString * subject = @" - (void)sizeToFit;";
-    XFAObjcMethodParser * parser = XFAObjcMethodParser.new;
-    XFAObjcMethod * method = [parser parseMethod:subject];
+    XFPObjcMethodParser * parser = [XFPObjcMethodParser new];
+    XFPObjcMethod * method = [parser parseMethod:subject];
     
     XCTAssertFalse(method.isClassMethod, @"should mark as instanse method");
     
@@ -55,8 +55,8 @@
 {
     
     NSString * subject = @"- (CGRect)convertRect:(CGRect)rect fromView:(UIView *)view;";
-    XFAObjcMethodParser * parser = XFAObjcMethodParser.new;
-    XFAObjcMethod * method = [parser parseMethod:subject];
+    XFPObjcMethodParser * parser = [XFPObjcMethodParser new];
+    XFPObjcMethod * method = [parser parseMethod:subject];
     
     XCTAssertFalse(method.isClassMethod, @"should mark as instanse method");
     
@@ -82,8 +82,8 @@
 {
     
     NSString * subject = @"- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event;";
-    XFAObjcMethodParser * parser = XFAObjcMethodParser.new;
-    XFAObjcMethod * method = [parser parseMethod:subject];
+    XFPObjcMethodParser * parser = [XFPObjcMethodParser new];
+    XFPObjcMethod * method = [parser parseMethod:subject];
     
     XCTAssertFalse(method.isClassMethod, @"should mark as instanse method");
     XCTAssertEqualObjects(method.methodName, @"pointInside", @"should");

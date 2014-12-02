@@ -7,10 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <xflowparser/XFAFileReader.h>
-#import <xflowparser/XFAObjcClass.h>
-#import <xflowparser/XFAObjcProperty.h>
-#import <xflowparser/XFAObjcMethod.h>
+#import <xflowparser/XFPFileReader.h>
+#import <xflowparser/XFPObjcClass.h>
+#import <xflowparser/XFPObjcProperty.h>
+#import <xflowparser/XFPObjcMethod.h>
 
 @interface XFAFileReaderTests : XCTestCase{
     NSString * header_file_UIViewControllerTransitioning;
@@ -47,7 +47,7 @@
 
 - (void)testReaderNumberOfLines
 {
-    XFAFileReader * reader =  XFAFileReader.new;
+    XFPFileReader * reader =  [XFPFileReader new];
 //    NSURL * url = [NSURL URLWithString:@"/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIView.h"];
    NSString * str = [[NSBundle bundleForClass:self.class] pathForResource:@"UIView.h" ofType:nil];
     NSURL * url = [NSURL fileURLWithPath:str];
@@ -62,7 +62,7 @@
 //    NSURL * url = [NSURL URLWithString:@"/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIView.h"];
     NSString * str = [[NSBundle bundleForClass:self.class] pathForResource:@"UIView.h" ofType:nil];
     NSURL * url = [NSURL fileURLWithPath:str];
-    XFAFileReader * reader =  XFAFileReader.new;
+    XFPFileReader * reader =  [XFPFileReader new];
     NSArray * arr = [reader linesOfSection:@"@interface" sectionName:@"UIView" sectionCategory:nil file:url];
     
     XCTAssertEqual(arr.count, 89, @"lines of setion");
@@ -73,7 +73,7 @@
 -(void)testProtocolLinesWitCategory{
     NSURL * url = [NSURL fileURLWithPath:header_file_UIViewControllerTransitionCoordinator];
     
-    XFAFileReader * reader =  XFAFileReader.new;
+    XFPFileReader * reader = [XFPFileReader new];
     NSArray * arr = [reader linesOfSection:@"@protocol" sectionName:@"UIViewControllerTransitionCoordinator" sectionCategory:nil file:url];
     XCTAssertEqualObjects([arr objectAtIndex:0], @"@protocol UIViewControllerTransitionCoordinator <UIViewControllerTransitionCoordinatorContext>", @"should detect first line ");
     XCTAssertEqual(arr.count, 35, @"lines of setion");
@@ -84,7 +84,7 @@
     
     NSURL * url = [NSURL fileURLWithPath:header_file_UIView];
     
-    XFAFileReader * reader =  XFAFileReader.new;
+    XFPFileReader * reader =  [XFPFileReader new];
     NSArray * arr = [reader linesOfSection:@"@interface" sectionName:@"UIView" sectionCategory:@"UIViewGeometry" file:url];
     
     XCTAssertEqual(arr.count, 29, @"lines of setion");
@@ -96,7 +96,7 @@
 //    NSString * f = @"/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/NSParagraphStyle.h";
     NSURL * url = [NSURL fileURLWithPath:header_file_NSParagraphStyle];
 
-    XFAFileReader * reader =  XFAFileReader.new;
+    XFPFileReader * reader =  [XFPFileReader new];
     NSArray * arr = [reader namesForSectionType:@"@interface" inFile:url];
     XCTAssertEqualObjects(arr,
                           (@[@"NSMutableParagraphStyle",@"NSParagraphStyle",@"NSTextTab"]), @"class names not found");
@@ -109,7 +109,7 @@
     
     NSURL * url = [NSURL fileURLWithPath:header_file_UIView];
 
-    XFAFileReader * reader =  XFAFileReader.new;
+    XFPFileReader * reader =  [XFPFileReader new];
     NSArray * arr = [reader linesOfSection:@"@interface" sectionName:@"UIView" sectionCategory:nil file:url];
     NSArray * methodLines = [reader filterMethodLines:arr];
     
@@ -121,7 +121,7 @@
 
 -(void)testFilterMethodsWithLineBreaks{
     
-    XFAFileReader * reader =  XFAFileReader.new;
+    XFPFileReader * reader = [XFPFileReader new];
     NSArray * arr = [reader linesOfSection:@"@protocol" sectionName:@"UIViewControllerTransitionCoordinator" sectionCategory:nil
                                       file:[NSURL fileURLWithPath:header_file_UIViewControllerTransitionCoordinator]];
     
@@ -138,7 +138,7 @@
 -(void)testFilterPropertyLines
 {
     NSURL * url = [NSURL fileURLWithPath:header_file_UIView];
-    XFAFileReader * reader = XFAFileReader.new;
+    XFPFileReader * reader = [XFPFileReader new];
     NSArray * arr = [reader linesOfSection:@"@interface" sectionName:@"UIView" sectionCategory:nil file:url];
     NSArray * propretyLines = [reader filterPropertyLines:arr];
     XCTAssertEqualObjects([propretyLines objectAtIndex:0], @"@property(nonatomic,getter=isUserInteractionEnabled) BOOL userInteractionEnabled;", @"should find the right first right property line");
@@ -149,7 +149,7 @@
 -(void)testExtractClassNames
 {
     NSURL * url = [NSURL fileURLWithPath:header_file_UIView];
-    XFAFileReader * reader = XFAFileReader.new;
+    XFPFileReader * reader = [XFPFileReader new];
     NSArray * classNames = [reader classNamesInLines:[reader linesOfFile:url]];
     XCTAssertEqualObjects( classNames , @[@"UIView" ], @"should get @[UIView] as output");
 }
@@ -158,7 +158,7 @@
 -(void)testExtractClassNamesInParagaphsFile
 {
     NSURL * url = [NSURL fileURLWithPath:header_file_NSParagraphStyle];
-    XFAFileReader * reader = XFAFileReader.new;
+    XFPFileReader * reader = [XFPFileReader new];
     NSArray * classNames = [reader classNamesInLines:[reader linesOfFile:url]];
     XCTAssertEqualObjects( classNames ,  ( @[ @"NSMutableParagraphStyle",
                                               @"NSParagraphStyle",
@@ -173,7 +173,7 @@
 -(void)testExtractProtocolNames
 {
     NSURL * url = [NSURL fileURLWithPath:header_file_UIViewControllerTransitioning];
-    XFAFileReader * reader = XFAFileReader.new;
+    XFPFileReader * reader = [XFPFileReader new];
     NSArray * names = [reader protocolNamesInLines:[reader linesOfFile:url]];
     XCTAssertEqualObjects( names ,
                           (@[
@@ -195,7 +195,7 @@
      end
      */
     
-    XFAFileReader * reader = XFAFileReader.new;
+    XFPFileReader * reader = [XFPFileReader new];
     NSArray * arr = [reader linesOfFile:[NSURL fileURLWithPath:header_file_NSParagraphStyle]];
     NSDictionary * dic = [reader classesDictionaryInLines:arr];
     NSDictionary * expectedDic = @{ @"NSTextTab" : @"NSObject",
@@ -208,7 +208,7 @@
 //#T.B.D. 
 -(void)test_retrieval_classCategoriesInLines{
     return;
-    XFAFileReader * reader = XFAFileReader.new;
+    XFPFileReader * reader = [XFPFileReader new];
     NSArray * lines = [reader linesOfFile:[NSURL fileURLWithPath:header_file_UIView]];
     NSArray * categories = [reader categoriesOfClassNamed:@"UIView" inLines:lines];
     XCTAssertEqual(categories, (@[
@@ -235,12 +235,12 @@
 
 -(void)test_retrieval_classWithName
 {
-    XFAFileReader * reader = XFAFileReader.new;
-    XFAObjcClass * klass = [reader classNamed:@"UIView" inFile:[NSURL fileURLWithPath: header_file_UIView]];
-    XFAObjcProperty * p = [klass.properties firstObject];
+    XFPFileReader * reader = [XFPFileReader new];
+    XFPObjcClass * klass = [reader classNamed:@"UIView" inFile:[NSURL fileURLWithPath: header_file_UIView]];
+    XFPObjcProperty * p = [klass.properties firstObject];
     NSLog(@"%@",p.propertyName);
     XCTAssert(p.propertyName);
-    XFAObjcMethod * m = [klass.methods firstObject];
+    XFPObjcMethod * m = [klass.methods firstObject];
     XCTAssert(m.methodName, @"");
     XCTAssertEqual(klass.className,@"UIView", @"bad classname %@",klass.className);
  

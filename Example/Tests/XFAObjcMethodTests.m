@@ -8,8 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
-#import "XFAObjcMethodParser.h"
-#import "XFAObjcMethod.h"
+#import "XFPObjcMethodParser.h"
+#import "XFPObjcMethod.h"
 
 
 @interface XFAObjcMethodTests : XCTestCase
@@ -31,7 +31,7 @@
 - (void)testExample {
     // This is an example of a functional test case.
     NSString * methodString = @"- (CGRect)convertRect:(CGRect)rect fromView:(UIView *)view;";
-    XFAObjcMethod * m = [[XFAObjcMethodParser new] parseMethod:methodString];
+    XFPObjcMethod * m = [[XFPObjcMethodParser new] parseMethod:methodString];
     NSLog(@"%@",m.signature);
     XCTAssertEqualObjects(m.signature,@"convertRect:fromView:");
     
