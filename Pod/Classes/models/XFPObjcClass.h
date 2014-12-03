@@ -14,8 +14,8 @@
 
 @property (nonatomic, strong) NSString * headerFilePath;
 @property (nonatomic, strong) NSString * className;
-@property (nonatomic, assign) BOOL isCrawleable;
-@property (nonatomic, assign) BOOL isSubclassesCrawlable;
+@property (nonatomic, strong) NSNumber * isCrawleable;
+@property (nonatomic, strong) NSNumber * isSubclassesCrawlable;
 @property (nonatomic, strong) NSString * superClassName;
 @property (nonatomic, strong) NSString * childrenKey;
 
