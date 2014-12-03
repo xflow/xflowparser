@@ -15,7 +15,6 @@
     
 }
 @property (nonatomic,strong) XFPObjcMethodSignature * methodSignature;
-@property (nonatomic,strong) NSArray * methodArguments;
 @property (nonatomic,strong) NSString * signature;
 @property (nonatomic,strong) NSString * encoding;
 

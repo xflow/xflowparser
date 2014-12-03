@@ -43,7 +43,7 @@
 @property (nonatomic,assign) BOOL isInherited;
 @property (nonatomic,assign) NSInteger childEntryArgumentIndex; //
 
-@property (nonatomic,readonly) NSArray * methodArguments;
+@property (nonatomic,strong) NSArray * methodArguments;
 
 -(void)addMethodArgument:(XFPObjcMethodArgument*)arg;
 
