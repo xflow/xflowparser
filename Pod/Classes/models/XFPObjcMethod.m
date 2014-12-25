@@ -34,7 +34,7 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"isInterceptable" : NSNull.null
+             @"isInterceptable" : NSNull.null,
              };
 }
 

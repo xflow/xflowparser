@@ -30,10 +30,10 @@
 
 - (void)testListDirectoryHeaderFiles
 {
-    NSString * dir = @"/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/UIKit.framework/Headers";
+    NSString * dir = @"/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/UIKit.framework/Headers";
     NSURL * dirUrl = [NSURL URLWithString:dir];
     NSArray * arr = [XFPDirectoryReader headersUrlsInDirWithUrl:dirUrl];
-    XCTAssertEqual(arr.count, 137, @"count expected to b 136");
+    XCTAssertEqual(arr.count, 155, @"count expected to b 136");
     
 }
 

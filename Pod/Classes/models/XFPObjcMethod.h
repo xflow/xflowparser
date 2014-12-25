@@ -18,6 +18,7 @@
 @property (nonatomic,readonly) NSString * signature;
 @property (nonatomic,readonly) NSString * encoding;
 
+@property (nonatomic,strong) NSString * frameworkName;
 @property (nonatomic,strong) NSString * methodName; // objcName //
 @property (nonatomic,strong) NSString * returnObjcType;
 
