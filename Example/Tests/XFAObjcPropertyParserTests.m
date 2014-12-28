@@ -161,6 +161,26 @@
     XCTAssertNil(property.iosAvailableToVersion, @"");
 }
 
+
+- (void)testParseAnIBOutlet
+{
+    NSString * p = @"@property(nonatomic,weak) IBOutlet UILabel* textLabel;";
+    
+    XFPObjcPropertyParser * parser = [XFPObjcPropertyParser new];
+    XFPObjcProperty * property = [parser parseProperty:p];
+    
+    XCTAssertEqualObjects(property.objcType, @"UILabel *", @"");
+    XCTAssertEqualObjects(property.propertyName, @"textLabel", @"");
+    XCTAssertEqualObjects(property.attributes, (@[@"nonatomic",@"weak"]), @"");
+    XCTAssert(property.isNSObject,@"");
+    XCTAssert(property.isIBOutlet,@"");
+    XCTAssertFalse(property.isDeprecated, "");
+    XCTAssertFalse(property.isOnlyIOS, @"");
+    XCTAssertNil(property.iosAvailableFromVersion , @"");
+    XCTAssertNil(property.iosAvailableToVersion, @"");
+}
+
+
 - (void)testParseAPropertyWithCommentAfter
 {
     NSString * p = @"@property(nonatomic, readonly, retain) UILabel* detailTextLabel; // only supported for headers in grouped style";
@@ -339,6 +359,9 @@
     XCTAssertNil(property.iosAvailableFromVersion , @"");
     XCTAssertNil(property.iosAvailableToVersion, @"");
 }
+
+
+
 
 
 

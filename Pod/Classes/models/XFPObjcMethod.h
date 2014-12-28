@@ -25,6 +25,7 @@
 @property (nonatomic,assign) BOOL isNSObject; // return
 @property (nonatomic,strong) NSArray * objcTypeProtocolNames; // return;
 @property (nonatomic,assign) BOOL isOptionalByObjcProtocol;
+@property (nonatomic,assign) BOOL isIBAction;
 
 @property (nonatomic,strong) NSString * objcCategory;
 

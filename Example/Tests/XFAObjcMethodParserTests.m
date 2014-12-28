@@ -50,6 +50,52 @@
     
 }
 
+- (void)testParserSimpleMethodWithReturnUIView
+{
+    
+    NSString * subject = @" - (UIView *)helperView;";
+    XFPObjcMethodParser * parser = [XFPObjcMethodParser new];
+    XFPObjcMethod * method = [parser parseMethod:subject];
+    
+    XCTAssertFalse(method.isClassMethod, @"should mark as instanse method");
+    
+    XCTAssertEqual(method.methodArguments.count, 0, @"should have no arguments");
+    
+    XCTAssertNil(method.objcCategory, @"should have no category");
+    XCTAssertEqualObjects(method.returnObjcType, @"UIView *", @"should be UIView");
+    XCTAssertNil(method.iosAvailableFromVersion, @"should be nil");
+    XCTAssertNil(method.iosAvailableToVersion, @"should be nil");
+    XCTAssertNil(method.osxAvailableFromVersion, @"should be nil");
+    XCTAssertNil(method.osxAvailableToVersion, @"should be nil");
+    XCTAssertFalse(method.isOnlyIOS, @"should be false");
+    XCTAssertFalse(method.isOnlyOSX, @"should be false");
+    
+}
+
+
+- (void)testParserIBAction
+{
+    
+    NSString * subject = @" - (IBAction)action:(id)sender;";
+    XFPObjcMethodParser * parser = [XFPObjcMethodParser new];
+    XFPObjcMethod * method = [parser parseMethod:subject];
+    
+    XCTAssertFalse(method.isClassMethod, @"should mark as instanse method");
+    
+    XCTAssertEqual(method.methodArguments.count, 1, @"should have no arguments");
+    
+    XCTAssertNil(method.objcCategory, @"should have no category");
+    XCTAssertEqualObjects(method.returnObjcType, @"IBAction", @"should be ibaction");
+    XCTAssert(method.isIBAction, @"should be ibaction");
+    XCTAssertNil(method.iosAvailableFromVersion, @"should be nil");
+    XCTAssertNil(method.iosAvailableToVersion, @"should be nil");
+    XCTAssertNil(method.osxAvailableFromVersion, @"should be nil");
+    XCTAssertNil(method.osxAvailableToVersion, @"should be nil");
+    XCTAssertFalse(method.isOnlyIOS, @"should be false");
+    XCTAssertFalse(method.isOnlyOSX, @"should be false");
+    
+}
+
 
 - (void)testParserSimpleMethodWithTwoParams
 {

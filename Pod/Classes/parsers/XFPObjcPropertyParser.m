@@ -27,7 +27,8 @@
     
     NSString * pattern = @"@property[ \\t]*"
     "(\\(?[a-zA-Z0-9_,<>=\\*\\\\/]*\\))?"
-    "[ \\t]*([A-Za-z0-9]*)[ \\t]*"
+//    ""
+    "[ \\t]*(IBOutlet)?[ \\t]*([A-Za-z0-9]*)[ \\t]*"
     "(\\*)?"
     "(<[a-zA-Z0-9_,]*>)?"
     "[ \\t]*([A-Za-z0-9_]*)";
@@ -45,11 +46,13 @@
   
     NSLog(@"attributes:%@",property.attributes);
     
-    RxMatchGroup * grp2Type = [matchAttributes.groups objectAtIndex:2];
+    RxMatchGroup * grp2Type = [matchAttributes.groups objectAtIndex:3];
     NSLog(@"type:%@",grp2Type.value);
     property.objcType = grp2Type.value;
     
-    RxMatchGroup * grp3Star = [matchAttributes.groups objectAtIndex:3];
+    property.isIBOutlet = [[matchAttributes.groups[2] value] isEqualToString:@"IBOutlet"];
+    
+    RxMatchGroup * grp3Star = [matchAttributes.groups objectAtIndex:4];
     NSLog(@"*:%@",grp3Star.value);
     
     if ([grp3Star.value isEqualToString:@"*"]) {
@@ -58,12 +61,12 @@
     
     property.isNSObject = [XFPObjcTypeEncoding isObjcType:property.objcType];
     
-    RxMatchGroup * grp4Protocols = [matchAttributes.groups objectAtIndex:4];
+    RxMatchGroup * grp4Protocols = [matchAttributes.groups objectAtIndex:5];
     NSString * protocolsString = [grp4Protocols.value replace:RX(@"[<>]") with:@""];
     NSArray * protocols = [protocolsString split:RX(@",")];
     property.objcTypeProtocolNames = protocols;
     
-    RxMatchGroup * grp5Name = [matchAttributes.groups objectAtIndex:5];
+    RxMatchGroup * grp5Name = [matchAttributes.groups objectAtIndex:6];
     NSLog(@"name: %@",grp5Name.value);
     property.propertyName = grp5Name.value;
     

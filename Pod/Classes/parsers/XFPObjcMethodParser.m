@@ -27,6 +27,7 @@
 
     RxMatchGroup * grp2 = [first_parts objectAtIndex:2];
     method.returnObjcType = grp2.value;
+    method.isIBAction = [method.returnObjcType isEqualToString:@"IBAction"];
     
     RxMatchGroup * grp3 = [first_parts objectAtIndex:3];
     method.methodName = grp3.value;

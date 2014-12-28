@@ -28,6 +28,7 @@
 
 @property (nonatomic,assign) BOOL isOnlyIOS;
 @property (nonatomic,assign) BOOL isOnlyOSX;
+@property (nonatomic,assign) BOOL isIBOutlet;
 
 @property (nonatomic,strong) NSString * objcCategory;
 @property (nonatomic,strong) NSNumber * iosAvailableFromVersion;
