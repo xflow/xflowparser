@@ -50,7 +50,9 @@
     NSLog(@"type:%@",grp2Type.value);
     property.objcType = grp2Type.value;
     
-    property.isIBOutlet = [[matchAttributes.groups[2] value] isEqualToString:@"IBOutlet"];
+    RxMatchGroup * grp2TypeOutlet = matchAttributes.groups[2];
+    property.isIBOutlet = [grp2TypeOutlet.value isEqualToString:@"IBOutlet"];
+    
     
     RxMatchGroup * grp3Star = [matchAttributes.groups objectAtIndex:4];
     NSLog(@"*:%@",grp3Star.value);
