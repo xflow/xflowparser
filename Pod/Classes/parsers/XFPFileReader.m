@@ -176,8 +176,17 @@
 
 
 -(NSArray*)categoriesOfClassNamed:(NSString*)name inLines:(NSArray*)lines{
+    NSMutableArray * arr = [NSMutableArray array];
+    for (NSString * line in lines) {
+        NSString * pattern = [NSString stringWithFormat:@"@interface[ \\t]+%@[ \\t]?\\(",name];
+        if ([line isMatch:RX(pattern)] ) {
+            XFPObjcClassParser * parser = [XFPObjcClassParser new];
+            NSString * output = [parser categoryNameForInterfaceLine:line];
+            [arr addObject:output];
+        }
+    }
+    return arr;
     
-    return nil;
 }
 
 -(XFPObjcClass*)classNamed:(NSString*)className inFile:(NSURL*)url{

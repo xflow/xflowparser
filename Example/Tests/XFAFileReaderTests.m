@@ -17,6 +17,7 @@
     NSString * header_file_UIViewControllerTransitionCoordinator;
     NSString * header_file_UIView;
     NSString * header_file_NSParagraphStyle;
+    NSString * header_file_UINavigationController;
 }
 
 @end
@@ -37,12 +38,40 @@
     
     header_file_UIView = [myBundle pathForResource:@"UIView.h" ofType:nil];;
     header_file_NSParagraphStyle = [myBundle pathForResource:@"NSParagraphStyle.h" ofType:nil];
+
+    header_file_UINavigationController = [myBundle pathForResource:@"UINavigationController.h" ofType:nil];
+
+
 }
 
 - (void)tearDown
 {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
+}
+
+
+-(void)testMultiInterfacesInOneFile
+{
+
+    XFPFileReader * reader =  [XFPFileReader new];
+    NSURL * url = [NSURL fileURLWithPath:header_file_UINavigationController];
+    
+    NSArray * lines = [reader linesOfFile:url];
+    XCTAssert(lines.count > 100, @"number of lines should be about 500 lines");
+
+    NSArray * arr0 = [reader linesOfSection:@"@interface" sectionName:@"UINavigationController" sectionCategory:nil file:url];
+    XCTAssertEqual(arr0.count, 34 , @"number of lines should be about 500 lines");
+    
+    NSArray * arr1 = [reader linesOfSection:@"@interface" sectionName:@"UIViewController" sectionCategory:@"UINavigationControllerItem" file:url];
+    XCTAssertEqual(arr1.count, 7 , @"number of lines should be about 500 lines");
+    
+    NSArray * arr2 = [reader linesOfSection:@"@interface" sectionName:@"UIViewController" sectionCategory:@"UINavigationControllerContextualToolbarItems" file:url];
+    XCTAssertEqual(arr2.count, 6 , @"number of lines should be about 500 lines");
+    
+    
+    NSArray * classCategories = [reader categoriesOfClassNamed:@"UIViewController" inLines:lines];
+    XCTAssertEqualObjects(classCategories, (@[@"UINavigationControllerItem", @"UINavigationControllerContextualToolbarItems"]));
 }
 
 - (void)testReaderNumberOfLines
@@ -207,19 +236,19 @@
 
 //#T.B.D. 
 -(void)test_retrieval_classCategoriesInLines{
-    return;
+
     XFPFileReader * reader = [XFPFileReader new];
     NSArray * lines = [reader linesOfFile:[NSURL fileURLWithPath:header_file_UIView]];
     NSArray * categories = [reader categoriesOfClassNamed:@"UIView" inLines:lines];
-    XCTAssertEqual(categories, (@[
-                                 @"Geometry",
-                                 @"Hierarchy",
-                                 @"Rendering",
-                                 @"Animation",
-                                 @"AnimationWithBlocks",
-                                 @"KeyframeAnimations",
-                                 @"GestureRecognizers",
-                                 @"MotionEffects",
+    XCTAssertEqualObjects(categories, (@[
+                                 @"UIViewGeometry",
+                                 @"UIViewHierarchy",
+                                 @"UIViewRendering",
+                                 @"UIViewAnimation",
+                                 @"UIViewAnimationWithBlocks",
+                                 @"UIViewKeyframeAnimations",
+                                 @"UIViewGestureRecognizers",
+                                 @"UIViewMotionEffects",
                                  @"UIConstraintBasedLayoutInstallingConstraints",
                                  @"UIConstraintBasedLayoutCoreMethods" ,
                                  @"UIConstraintBasedCompatibility" ,
