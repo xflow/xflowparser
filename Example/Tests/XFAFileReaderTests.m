@@ -60,8 +60,11 @@
     NSArray * lines = [reader linesOfFile:url];
     XCTAssert(lines.count > 100, @"number of lines should be about 500 lines");
 
-    NSArray * arr0 = [reader linesOfSection:@"@interface" sectionName:@"UINavigationController" sectionCategory:nil file:url];
-    XCTAssertEqual(arr0.count, 34 , @"number of lines should be about 500 lines");
+    NSArray * arr01 = [reader linesOfSection:@"@interface" sectionName:@"UINavigationController" sectionCategory:nil file:url];
+    XCTAssertEqual(arr01.count, 34 , @"number of lines should be about 500 lines");
+
+    NSArray * arr02 = [reader linesOfSection:@"interface" sectionName:@"UINavigationController" sectionCategory:@"" file:url];
+    XCTAssertEqual(arr02.count, 34 , @"number of lines should be about 500 lines");
     
     NSArray * arr1 = [reader linesOfSection:@"@interface" sectionName:@"UIViewController" sectionCategory:@"UINavigationControllerItem" file:url];
     XCTAssertEqual(arr1.count, 7 , @"number of lines should be about 500 lines");
@@ -71,6 +74,9 @@
 
     NSArray * arr3 = [reader linesOfSection:@"@interface" sectionName:@"UIViewController" sectionCategory:nil file:url];
     XCTAssertEqual(arr3.count, 0, @"should not get any results");
+
+    NSArray * arr4 = [reader linesOfSection:@"@interface" sectionName:@"UIViewController" sectionCategory:@"" file:url];
+    XCTAssertEqual(arr4.count, 0, @"should not get any results");
     
     NSArray * classCategories = [reader categoriesOfClassNamed:@"UIViewController" inLines:lines];
     XCTAssertEqualObjects(classCategories, (@[@"UINavigationControllerItem", @"UINavigationControllerContextualToolbarItems"]));

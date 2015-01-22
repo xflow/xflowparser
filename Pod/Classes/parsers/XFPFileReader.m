@@ -66,14 +66,23 @@
 
         NSString * patternSectionName = nil;
         
+        sectionCategory = sectionCategory.length == 0 ? nil : sectionCategory;
         
-        if ( [sectionType isEqualToString:@"@protocol"]) {
+        if ( [sectionType isMatch:RX(@"protocol")]) {
             patternSectionName = [NSString stringWithFormat:@"%@\\b", sectionName ];
-        } else if ( [sectionType isEqualToString:@"@interface"] && sectionCategory ) {
+        } else if ( [sectionType isMatch:RX(@"interface")] && sectionCategory ) {
             patternSectionName = [NSString stringWithFormat:@"%@\\b", sectionName ];
         } else {
             patternSectionName = [NSString stringWithFormat:@"%@[ \\t]:", sectionName ];
         }
+        /*
+        if ( [sectionType isMatch:RX(@"protocol")]) {
+            patternSectionName = [NSString stringWithFormat:@"%@\\b", sectionName ];
+        } else if ( [sectionType isMatch:RX(@"interface")] && sectionCategory ) {
+            patternSectionName = [NSString stringWithFormat:@"%@\\b", sectionName ];
+        } else {
+            patternSectionName = [NSString stringWithFormat:@"%@[ \\t]:", sectionName ];
+        }*/
         
         if ([line isMatch:RX(sectionType)] &&
             [line isMatch:RX(patternSectionName)] ) {

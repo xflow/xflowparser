@@ -31,7 +31,7 @@
 -(NSString* )categoryNameForInterfaceLine:(NSString*)interfaceLine
 {
     
-    NSString * pattern = @"\\(([A-Z][A-Za-z0-9]+)\\)";
+    NSString * pattern = @"\\(([A-Z][A-Za-z0-9_]+)\\)";
     RxMatch * s = [interfaceLine firstMatchWithDetails:RX(pattern)];
     NSString * output = nil;
     if (s) {

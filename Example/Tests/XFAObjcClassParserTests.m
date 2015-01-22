@@ -70,6 +70,17 @@
     XCTAssertNil(output, @"should get nil of a an interface main line NOT:( %@ )" ,output);
 }
 
+
+-(void)testPrasingCategoryName3
+{
+    XFPObjcClassParser * parser = [XFPObjcClassParser new];
+    NSString * output = [parser categoryNameForInterfaceLine:@"@interface UIPrintPaper(Deprecated_Nonfunctional)"];
+    XCTAssertEqualObjects(output, @"Deprecated_Nonfunctional", @"should get the category of a an interface line");
+}
+
+
+
+
 -(void)testParsingProtocolNames
 {
     NSString * li = @"NS_CLASS_AVAILABLE_IOS(2_0) @interface UIView : UIResponder<NSCoding, UIAppearance, UIAppearanceContainer, UIDynamicItem>";
