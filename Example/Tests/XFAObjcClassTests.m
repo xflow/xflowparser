@@ -38,7 +38,7 @@
     NSString * tplfFileName = @"XFAViewController.h.tpl";
     NSString * str = [[NSBundle bundleForClass:self.class] pathForResource:tplfFileName ofType:nil];
     NSURL * url = [NSURL fileURLWithPath:str];
-    XFPObjcClass * klass = [reader classNamed:@"XFAViewController" inFile:url];
+    XFPObjcClass * klass = [reader classNamed:@"XFAViewController" withCategory:nil inFile:url];
 //    NSLog(@"klass:%@",klass);
     NSDictionary * jsonDictionary = [MTLJSONAdapter JSONDictionaryFromModel:klass];
 //    NSLog(@"jsonDictionary:%@",jsonDictionary);

@@ -33,6 +33,6 @@
 
 -(NSArray*)categoriesOfClassNamed:(NSString*)name inLines:(NSArray*)lines;
 
--(XFPObjcClass*)classNamed:(NSString*)className inFile:(NSURL*)url;
+-(XFPObjcClass*)classNamed:(NSString*)className  withCategory:(NSString*)categoryName inFile:(NSURL*)url;
 
 @end

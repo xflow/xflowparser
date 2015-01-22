@@ -68,7 +68,9 @@
     
     NSArray * arr2 = [reader linesOfSection:@"@interface" sectionName:@"UIViewController" sectionCategory:@"UINavigationControllerContextualToolbarItems" file:url];
     XCTAssertEqual(arr2.count, 6 , @"number of lines should be about 500 lines");
-    
+
+    NSArray * arr3 = [reader linesOfSection:@"@interface" sectionName:@"UIViewController" sectionCategory:nil file:url];
+    XCTAssertEqual(arr3.count, 0, @"should not get any results");
     
     NSArray * classCategories = [reader categoriesOfClassNamed:@"UIViewController" inLines:lines];
     XCTAssertEqualObjects(classCategories, (@[@"UINavigationControllerItem", @"UINavigationControllerContextualToolbarItems"]));
@@ -234,7 +236,7 @@
     
 }
 
-//#T.B.D. 
+
 -(void)test_retrieval_classCategoriesInLines{
 
     XFPFileReader * reader = [XFPFileReader new];
@@ -262,10 +264,11 @@
 }
 
 
+
 -(void)test_retrieval_classWithName
 {
     XFPFileReader * reader = [XFPFileReader new];
-    XFPObjcClass * klass = [reader classNamed:@"UIView" inFile:[NSURL fileURLWithPath: header_file_UIView]];
+    XFPObjcClass * klass = [reader classNamed:@"UIView" withCategory:nil inFile:[NSURL fileURLWithPath: header_file_UIView]];
     XFPObjcProperty * p = [klass.properties firstObject];
     NSLog(@"%@",p.propertyName);
     XCTAssert(p.propertyName);

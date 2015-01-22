@@ -53,6 +53,9 @@
                      file:(NSURL*)url
 {
     
+    NSParameterAssert(sectionType);
+    NSParameterAssert(sectionName);
+    NSParameterAssert(url);
     NSArray * lines = [self linesOfFile:url];
     BOOL started = NO;
     NSMutableArray * output = [NSMutableArray array];
@@ -61,11 +64,20 @@
             [output addObject:line];
         }
 
-        NSString * patternSectionName = [NSString stringWithFormat:@"%@\\b", sectionName ];
-
+        NSString * patternSectionName = nil;
+        
+        
+        if ( [sectionType isEqualToString:@"@protocol"]) {
+            patternSectionName = [NSString stringWithFormat:@"%@\\b", sectionName ];
+        } else if ( [sectionType isEqualToString:@"@interface"] && sectionCategory ) {
+            patternSectionName = [NSString stringWithFormat:@"%@\\b", sectionName ];
+        } else {
+            patternSectionName = [NSString stringWithFormat:@"%@[ \\t]:", sectionName ];
+        }
+        
         if ([line isMatch:RX(sectionType)] &&
             [line isMatch:RX(patternSectionName)] ) {
-            
+
             if (sectionCategory) {
                 if (![line isMatch:RX(sectionCategory)]) {
                     continue;
@@ -83,7 +95,8 @@
         }
 
     }
-    NSAssert(output.count > 0, @"Searching in the wrong file: %@",url.relativePath);
+//    NSAssert(output.count > 0, @"Searching in the wrong file: %@",url.relativePath);
+    NSLog(@"no lines found for %@ %@ %@",sectionType,sectionName,sectionCategory);
     return output;
 }
 
@@ -189,9 +202,9 @@
     
 }
 
--(XFPObjcClass*)classNamed:(NSString*)className inFile:(NSURL*)url{
+-(XFPObjcClass*)classNamed:(NSString*)className withCategory:(NSString*)categoryName inFile:(NSURL*)url{
     
-    NSArray * lines = [self linesOfSection:@"interface" sectionName:className sectionCategory:nil file:url];
+    NSArray * lines = [self linesOfSection:@"interface" sectionName:className sectionCategory:categoryName file:url];
     XFPObjcClassParser * cp = [XFPObjcClassParser new];
     NSDictionary * classesDict =  [self classesDictionaryInLines:lines];
     
