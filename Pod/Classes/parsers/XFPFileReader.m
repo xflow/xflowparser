@@ -217,7 +217,7 @@
     XFPObjcClassParser * cp = [XFPObjcClassParser new];
     NSDictionary * classesDict =  [self classesDictionaryInLines:lines];
     
-    NSAssert(lines && lines.count > 0, @"no lines found for class:%@",className);
+//    NSAssert(lines && lines.count > 0, @"no lines found for class:%@",className);
     XFPObjcClass * objcClass = [XFPObjcClass new];
     objcClass.className = className;
     objcClass.superClassName = [classesDict objectForKey:className];
@@ -226,8 +226,8 @@
     for (NSString * mline in methodLines){
         XFPObjcMethodParser * mp = [XFPObjcMethodParser new];
         XFPObjcMethod * method = [mp parseMethod:mline];
+        method.objcCategory = categoryName;
         NSAssert(method, @"no method for line:%@",mline);
-//        method.objcClass = objcClass;
         [objcClass.methods addObject:method];
     }
     
@@ -235,8 +235,8 @@
     for (NSString * pline in propLines){
         XFPObjcPropertyParser * pp = [XFPObjcPropertyParser new];
         XFPObjcProperty * p = [pp parseProperty:pline];
+        p.objcCategory = categoryName;
         NSAssert(p, @"no property for line:%@",pline);
-//        p.objcClass = objcClass;
         [objcClass.properties addObject:p];
     }
     

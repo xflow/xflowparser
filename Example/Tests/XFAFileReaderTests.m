@@ -1,3 +1,4 @@
+
 //
 //  XFAFileReaderTests.m
 //  xflow
@@ -18,6 +19,7 @@
     NSString * header_file_UIView;
     NSString * header_file_NSParagraphStyle;
     NSString * header_file_UINavigationController;
+    NSString * header_file_UIViewController;
 }
 
 @end
@@ -40,7 +42,8 @@
     header_file_NSParagraphStyle = [myBundle pathForResource:@"NSParagraphStyle.h" ofType:nil];
 
     header_file_UINavigationController = [myBundle pathForResource:@"UINavigationController.h" ofType:nil];
-
+    
+    header_file_UIViewController = [myBundle pathForResource:@"UIViewController.h" ofType:nil];
 
 }
 
@@ -50,6 +53,17 @@
     [super tearDown];
 }
 
+-(void)test_UIViewController_parser_complex_interface_line
+{
+    XFPFileReader * reader =  [XFPFileReader new];
+    NSURL * url = [NSURL fileURLWithPath:header_file_UIViewController];
+    
+    NSArray * lines = [reader linesOfSection:@"@interface" sectionName:@"UIViewController" sectionCategory:nil file:url];
+    XCTAssertEqual(lines.count, 238 , @"number of lines should be about 500 lines");
+    
+    NSArray * methodLines = [reader filterMethodLines:lines];
+    XCTAssertEqual(methodLines.count, 32 , @"number of lines should be about 500 lines");
+}
 
 -(void)testMultiInterfacesInOneFile
 {
