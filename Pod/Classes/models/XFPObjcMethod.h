@@ -24,7 +24,10 @@
 
 @property (nonatomic,assign) BOOL isNSObject; // return
 @property (nonatomic,strong) NSArray * objcTypeProtocolNames; // return;
+
 @property (nonatomic,assign) BOOL isOptionalByObjcProtocol;
+@property (nonatomic,assign) BOOL isRequiredByObjcProtocol;
+
 @property (nonatomic,assign) BOOL isIBAction;
 
 @property (nonatomic,strong) NSString * objcCategory;
@@ -41,7 +44,7 @@
 
 @property (nonatomic,readonly) NSInteger numberOfArguments; // readonly
 @property (nonatomic,readonly) BOOL isVariableNumberOfArguments; // readonly
-@property (nonatomic,assign) BOOL isInterceptable; //
+//@property (nonatomic,assign) BOOL isInterceptable; //
 @property (nonatomic,assign) BOOL isInherited;
 @property (nonatomic,assign) NSInteger childEntryArgumentIndex; //
 

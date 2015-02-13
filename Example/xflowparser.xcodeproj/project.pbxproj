@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		105E642E1A8E7983009FBE68 /* UITableView.h in Resources */ = {isa = PBXBuildFile; fileRef = 105E642D1A8E76D8009FBE68 /* UITableView.h */; };
 		106D15E51A20496F00924895 /* XFAObjcClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 106D15E41A20496F00924895 /* XFAObjcClassTests.m */; };
 		106D15E71A285E9900924895 /* XFAObjcMethodTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 106D15E61A285E9900924895 /* XFAObjcMethodTests.m */; };
 		109FD8651989F1A90018DB42 /* XFPMainWC.m in Sources */ = {isa = PBXBuildFile; fileRef = 109FD8641989F1A90018DB42 /* XFPMainWC.m */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		105E642D1A8E76D8009FBE68 /* UITableView.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UITableView.h; sourceTree = "<group>"; };
 		106D15E41A20496F00924895 /* XFAObjcClassTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAObjcClassTests.m; sourceTree = "<group>"; };
 		106D15E61A285E9900924895 /* XFAObjcMethodTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFAObjcMethodTests.m; sourceTree = "<group>"; };
 		109FD8631989F1A90018DB42 /* XFPMainWC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFPMainWC.h; sourceTree = "<group>"; };
@@ -144,6 +146,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		105E642C1A8E76D8009FBE68 /* iOS8.1 */ = {
+			isa = PBXGroup;
+			children = (
+				105E642D1A8E76D8009FBE68 /* UITableView.h */,
+			);
+			path = iOS8.1;
+			sourceTree = "<group>";
+		};
 		10C0A611198A11FE000B85BA /* test_subjects */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +161,7 @@
 				10C0A614198A11FE000B85BA /* HelloWorldSourceFiles */,
 				10C0A61B198A11FE000B85BA /* iOS7 */,
 				10C0A622198A11FE000B85BA /* iOS7.1 */,
+				105E642C1A8E76D8009FBE68 /* iOS8.1 */,
 			);
 			path = test_subjects;
 			sourceTree = "<group>";
@@ -419,6 +430,7 @@
 				10BEAD4B198A1B7E0081E6C5 /* UIViewControllerTransitionCoordinator.h in Resources */,
 				10C0A637198A11FF000B85BA /* XFAViewController.m.tpl in Resources */,
 				10C0A636198A11FF000B85BA /* XFAViewController.h.tpl in Resources */,
+				105E642E1A8E7983009FBE68 /* UITableView.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

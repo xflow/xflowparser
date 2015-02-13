@@ -12,8 +12,10 @@
 
 @property (nonatomic, strong) NSString * headerFilePath;
 
-@property (nonatomic, strong) NSString * protocolName;
+@property (nonatomic, strong) NSMutableArray * methods;
 
-@property (nonatomic, readonly) NSArray * methods;
+@property (nonatomic, strong) NSMutableArray * properties;
+
+@property (nonatomic, strong) NSString * protocolName;
 
 @end

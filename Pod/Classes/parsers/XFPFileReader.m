@@ -11,10 +11,13 @@
 
 #import "XFPObjcClassParser.h"
 #import "XFPObjcClass.h"
+#import "XFPObjcProtocol.h"
+
 #import "XFPObjcMethodParser.h"
 #import "XFPObjcMethod.h"
 #import "XFPObjcPropertyParser.h"
 #import "XFPObjcProperty.h"
+
 
 
 @implementation XFPFileReader
@@ -84,6 +87,10 @@
             patternSectionName = [NSString stringWithFormat:@"%@[ \\t]:", sectionName ];
         }*/
         
+        if ([line isMatch:RX(@";$")]) { // for cases like: @protocol UITableViewDataSource;
+            continue;
+        }
+        
         if ([line isMatch:RX(sectionType)] &&
             [line isMatch:RX(patternSectionName)] ) {
 
@@ -124,6 +131,46 @@
     }
     return properties;
 }
+
+-(NSArray*)filterProtocolMethodLines:(NSArray*)lines{
+    NSMutableArray * methods = NSMutableArray.new;
+    NSString * unended_line = nil;
+    NSString * line = nil;
+    for ( line in lines) {
+        
+        if ([line isEqualToString:@"@optional"]) {
+            [methods addObject:line];
+            continue;
+        }
+        
+        if ([line isEqualToString:@"@required"]) {
+            [methods addObject:line];
+            continue;
+        }
+        
+        line = [line replace:RX(@";.*$") with:@";"];
+        line = [line replace:RX(@" +") with:@" "];
+        
+        if (unended_line){
+            unended_line = [unended_line stringByAppendingString:line];
+            if ([line hasSuffix:@";"]){
+                [methods addObject:unended_line];
+                unended_line = nil;
+            }
+        } else if( ( [line hasPrefix:@"-"] || [line hasPrefix:@"+"] ) &&
+                  [line hasSuffix:@";"]){
+            [methods addObject:line];
+        } else if( [line hasPrefix:@"-"] || [line hasPrefix:@"+"] ){
+            unended_line = line;
+        } else {
+            //            NSLog(@"not a method line:#{%@}",line);
+        }
+    }
+    
+    return methods;
+    
+}
+
 
 -(NSArray*)filterMethodLines:(NSArray*)lines{
     NSMutableArray * methods = NSMutableArray.new;
@@ -210,6 +257,43 @@
     return arr;
     
 }
+
+
+-(XFPObjcProtocol*)protocolNamed:(NSString*)protocolName inFile:(NSURL*)url
+{
+    XFPObjcProtocol * protocol = [XFPObjcProtocol new];
+    NSArray * lines = [self linesOfSection:@"protocol" sectionName:protocolName sectionCategory:@"" file:url];
+    NSArray * methodLines = [self filterProtocolMethodLines:lines];
+    BOOL isRequiredOn = NO;
+    BOOL isOptionalOn = NO;
+    for (NSString * mline in methodLines){
+        XFPObjcMethodParser * mp = [XFPObjcMethodParser new];
+        if ([mline isEqualToString:@"@optional"]) {
+            isRequiredOn = NO;
+            isOptionalOn = YES;
+            continue;
+        }
+        if ([mline isEqualToString:@"@required"]) {
+            isRequiredOn = YES;
+            isOptionalOn = NO;
+            continue;
+        }
+        XFPObjcMethod * method = [mp parseMethod:mline];
+        method.isOptionalByObjcProtocol = isOptionalOn;
+        method.isRequiredByObjcProtocol = isRequiredOn;
+        NSAssert(method, @"no method for line:%@",mline);
+        [protocol.methods addObject:method];
+    }
+    NSArray * propLines = [self filterPropertyLines:lines];
+    for (NSString * pline in propLines){
+        XFPObjcPropertyParser * pp = [XFPObjcPropertyParser new];
+        XFPObjcProperty * p = [pp parseProperty:pline];
+        NSAssert(p, @"no property for line:%@",pline);
+        [protocol.properties addObject:p];
+    }
+    return protocol;
+}
+
 
 -(XFPObjcClass*)classNamed:(NSString*)className withCategory:(NSString*)categoryName inFile:(NSURL*)url{
     

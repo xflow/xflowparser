@@ -10,4 +10,14 @@
 
 @implementation XFPObjcProtocol
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.methods = NSMutableArray.new;
+        self.properties = NSMutableArray.new;
+    }
+    return self;
+}
+
 @end

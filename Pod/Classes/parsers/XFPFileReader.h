@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class XFPObjcClass;
+@class XFPObjcProtocol;
 
 @interface XFPFileReader : NSObject
 
@@ -21,6 +22,7 @@
 
 -(NSArray*)namesForSectionType:(NSString*)type inFile:(NSURL*)fileUrl;
 
+-(NSArray*)filterProtocolMethodLines:(NSArray*)lines;
 -(NSArray*)filterMethodLines:(NSArray*)lines;
 
 -(NSArray*)filterPropertyLines:(NSArray *)lines;
@@ -32,6 +34,8 @@
 -(NSDictionary *)classesDictionaryInLines:(NSArray*)lines;
 
 -(NSArray*)categoriesOfClassNamed:(NSString*)name inLines:(NSArray*)lines;
+
+-(XFPObjcProtocol*)protocolNamed:(NSString*)protocolName inFile:(NSURL*)url;
 
 -(XFPObjcClass*)classNamed:(NSString*)className  withCategory:(NSString*)categoryName inFile:(NSURL*)url;
 

@@ -99,6 +99,16 @@
 }
 
 
+-(void)testParsingClassName2{
+    XFPObjcClassParser * parser = [XFPObjcClassParser new];
+    NSString * li = @"NS_CLASS_AVAILABLE_IOS(2_0) @interface UITableViewCell : UIView <NSCoding, UIGestureRecognizerDelegate>";
+    NSString * className = [parser classNameForInterfaceLine:li];
+    XCTAssertEqualObjects(className, @"UIView", @"should get protocols of UIView");
+}
+
+
+
+
 
 
 @end

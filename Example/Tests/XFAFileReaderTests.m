@@ -12,6 +12,8 @@
 #import <xflowparser/XFPObjcClass.h>
 #import <xflowparser/XFPObjcProperty.h>
 #import <xflowparser/XFPObjcMethod.h>
+#import <xflowparser/XFPObjcMethodSignature.h>
+#import <xflowparser/XFPObjcProtocol.h>
 
 @interface XFAFileReaderTests : XCTestCase{
     NSString * header_file_UIViewControllerTransitioning;
@@ -20,6 +22,7 @@
     NSString * header_file_NSParagraphStyle;
     NSString * header_file_UINavigationController;
     NSString * header_file_UIViewController;
+    NSString * header_file_UITableView;
 }
 
 @end
@@ -44,6 +47,8 @@
     header_file_UINavigationController = [myBundle pathForResource:@"UINavigationController.h" ofType:nil];
     
     header_file_UIViewController = [myBundle pathForResource:@"UIViewController.h" ofType:nil];
+    header_file_UITableView = [myBundle pathForResource:@"UITableView.h" ofType:nil];
+    
 
 }
 
@@ -52,6 +57,7 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
+
 
 -(void)test_UIViewController_parser_complex_interface_line
 {
@@ -153,6 +159,38 @@
                           (@[@"NSMutableParagraphStyle",@"NSParagraphStyle",@"NSTextTab"]), @"class names not found");
     
 }
+
+
+-(void)testProtocolLinesInFile{
+    NSURL * url = [NSURL fileURLWithPath:header_file_UITableView];
+    XFPFileReader * reader =  [XFPFileReader new];
+    NSArray * lines = [reader linesOfSection:@"protocol" sectionName:@"UITableViewDataSource" sectionCategory:@"" file:url];
+    XCTAssertEqual(lines.count, 44);
+}
+
+-(void)testProtocolNamedInFile
+{
+    NSURL * url = [NSURL fileURLWithPath:header_file_UITableView];
+    XFPFileReader * reader =  [XFPFileReader new];
+    XFPObjcProtocol * protocol = [reader protocolNamed:@"UITableViewDataSource" inFile:url];
+    XCTAssert(protocol);
+    XCTAssertEqual(protocol.methods.count, 11);
+    XFPObjcMethod * method0 = protocol.methods[0];
+    XCTAssertEqualObjects(method0.methodSignature.signatureName, @"tableView:numberOfRowsInSection:");
+    XCTAssertTrue(method0.isRequiredByObjcProtocol);
+    XCTAssertFalse(method0.isOptionalByObjcProtocol);
+    XFPObjcMethod * method1 = protocol.methods[1];
+    XCTAssertEqualObjects( method1.methodSignature.signatureName, @"tableView:cellForRowAtIndexPath:");
+    XCTAssertTrue(method1.isRequiredByObjcProtocol);
+    XCTAssertFalse(method1.isOptionalByObjcProtocol);
+    XFPObjcMethod * method2 = protocol.methods[2];
+    XCTAssertEqualObjects(method2.methodSignature.signatureName, @"numberOfSectionsInTableView:");
+    XCTAssertFalse(method2.isRequiredByObjcProtocol);
+    XCTAssertTrue(method2.isOptionalByObjcProtocol);
+
+    XCTAssertEqual(protocol.properties.count, 0);
+}
+
 
 
 -(void)testFilteringUIViewMethods{
