@@ -23,6 +23,7 @@
     NSString * header_file_UINavigationController;
     NSString * header_file_UIViewController;
     NSString * header_file_UITableView;
+    NSString * header_file_UITabBarController;
 }
 
 @end
@@ -48,7 +49,8 @@
     
     header_file_UIViewController = [myBundle pathForResource:@"UIViewController.h" ofType:nil];
     header_file_UITableView = [myBundle pathForResource:@"UITableView.h" ofType:nil];
-    
+    header_file_UITabBarController = [myBundle pathForResource:@"UITabBarController.h" ofType:nil];
+
 
 }
 
@@ -340,6 +342,16 @@
     XCTAssert(klass , @"UIView class not found in file");
     XCTAssertEqual(klass.className , @"UIView" , @"expected class to be UIView");
     
+}
+
+
+
+-(void)testClassProtorolNames{
+    XFPFileReader * reader = [XFPFileReader new];
+    NSArray * lines = [reader linesOfFile:[NSURL fileURLWithPath:header_file_UITabBarController]];
+    XFPFileReader * parser = [XFPFileReader new];
+    NSArray * protocolNames = [parser protocolNamesForClassNamed:@"UITabBarController" inLines:lines];
+    XCTAssertEqualObjects(protocolNames, (@[ @"UITabBarDelegate", @"NSCoding"]),  @"protocol names" );
 }
 
 

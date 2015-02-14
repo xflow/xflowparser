@@ -309,6 +309,7 @@
     XFPObjcClass * objcClass = [XFPObjcClass new];
     objcClass.className = className;
     objcClass.superClassName = [classesDict objectForKey:className];
+    objcClass.protocolNamesConformingTo = [self protocolNamesForClassNamed:className inLines:lines];
 
     NSArray * methodLines = [self filterMethodLines:lines];
     for (NSString * mline in methodLines){
@@ -330,5 +331,20 @@
     
     return objcClass;
 }
+
+
+
+-(NSArray *)protocolNamesForClassNamed:(NSString*)className inLines:(NSArray*)lines{
+    NSArray * arr = nil;
+    XFPObjcClassParser * mp = [XFPObjcClassParser new];
+    for (NSString * line in lines) {
+        if ([line isMatch:RX(@"@interface")] && [line isMatch:RX(@"<([a-zA-Z0-9_, \\t]*)>")]) {
+            arr = [mp protocolNamesForInterfaceLine:line];
+            break;
+        }
+    }
+    return arr;
+}
+
 
 @end

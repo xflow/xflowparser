@@ -82,7 +82,7 @@
 		10C0A61F198A11FE000B85BA /* UIViewController.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UIViewController.h; sourceTree = "<group>"; };
 		10C0A620198A11FE000B85BA /* UIViewControllerTransitioning.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UIViewControllerTransitioning.h; sourceTree = "<group>"; };
 		10C0A621198A11FE000B85BA /* UIWindow.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UIWindow.h; sourceTree = "<group>"; };
-		10C0A623198A11FE000B85BA /* UINavigationController.h */ = {isa = PBXFileReference; explicitFileType = text.rtf; fileEncoding = 4; path = UINavigationController.h; sourceTree = "<group>"; };
+		10C0A623198A11FE000B85BA /* UINavigationController.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UINavigationController.h; sourceTree = "<group>"; };
 		10C0A624198A11FE000B85BA /* UITabBarController.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UITabBarController.h; sourceTree = "<group>"; };
 		10C0A625198A11FE000B85BA /* UIViewController.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UIViewController.h; sourceTree = "<group>"; };
 		10C0A626198A11FE000B85BA /* UIViewControllerTransitionCoordinator.h */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = UIViewControllerTransitionCoordinator.h; sourceTree = "<group>"; };

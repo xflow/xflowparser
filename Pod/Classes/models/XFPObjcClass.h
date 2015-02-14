@@ -20,6 +20,8 @@
 @property (nonatomic, strong) NSString * childrenKey;
 
 
+@property (nonatomic, strong) NSMutableArray * protocolNamesConformingTo;
+
 @property (nonatomic, strong) NSMutableArray * methods;
 
 @property (nonatomic, strong) NSMutableArray * properties;

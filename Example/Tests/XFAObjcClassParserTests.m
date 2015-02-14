@@ -8,7 +8,6 @@
 
 #import <XCTest/XCTest.h>
 #import <xflowparser/XFPObjcClassParser.h>
-#import <xflowparser/XFPFileReader.h>
 
 
 @interface XFAObjcClassParserTests : XCTestCase
@@ -17,6 +16,7 @@
     NSString * header_file_UIViewControllerTransitioning;
     NSString * header_file_UIView;
     NSString * header_file_NSParagraphStyle;
+    NSString * header_file_UITabBarController;
 }
 
 @end
@@ -39,6 +39,8 @@
     
     header_file_UIView = [myBundle pathForResource:@"UIView.h" ofType:nil];;
     header_file_NSParagraphStyle = [myBundle pathForResource:@"NSParagraphStyle.h" ofType:nil];
+    
+    header_file_UITabBarController = [myBundle pathForResource:@"UITabBarController.h" ofType:nil];
 }
 
 - (void)tearDown
@@ -103,10 +105,8 @@
     XFPObjcClassParser * parser = [XFPObjcClassParser new];
     NSString * li = @"NS_CLASS_AVAILABLE_IOS(2_0) @interface UITableViewCell : UIView <NSCoding, UIGestureRecognizerDelegate>";
     NSString * className = [parser classNameForInterfaceLine:li];
-    XCTAssertEqualObjects(className, @"UIView", @"should get protocols of UIView");
+    XCTAssertEqualObjects(className, @"UITableViewCell", @"should get protocols of UIView");
 }
-
-
 
 
 
