@@ -7,6 +7,8 @@
 //
 
 #import "XFPObjcProtocol.h"
+#import "XFPObjcProperty.h"
+#import "XFPObjcMethod.h"
 
 @implementation XFPObjcProtocol
 
@@ -18,6 +20,25 @@
         self.properties = NSMutableArray.new;
     }
     return self;
+}
+
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+             //@"properties" : [NSNull null]
+             };
+}
+
+
++ (NSValueTransformer *)propertiesJSONTransformer {
+    Class k = [XFPObjcProperty class];
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:k];
+}
+
+
++ (NSValueTransformer *)methodsJSONTransformer {
+    Class k = [XFPObjcMethod class];
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:k];
 }
 
 @end

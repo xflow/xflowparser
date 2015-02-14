@@ -63,6 +63,11 @@
     BOOL started = NO;
     NSMutableArray * output = [NSMutableArray array];
     for (NSString * line in lines) {
+        
+        if ([line isMatch:RX(@"^@protocol.*;$")]) { // for cases like: @protocol UITableViewDataSource;
+            continue;
+        }
+        
         if (started) {
             [output addObject:line];
         }
@@ -87,9 +92,6 @@
             patternSectionName = [NSString stringWithFormat:@"%@[ \\t]:", sectionName ];
         }*/
         
-        if ([line isMatch:RX(@";$")]) { // for cases like: @protocol UITableViewDataSource;
-            continue;
-        }
         
         if ([line isMatch:RX(sectionType)] &&
             [line isMatch:RX(patternSectionName)] ) {
@@ -112,7 +114,7 @@
 
     }
 //    NSAssert(output.count > 0, @"Searching in the wrong file: %@",url.relativePath);
-    NSLog(@"no lines found for %@ %@ %@",sectionType,sectionName,sectionCategory);
+//    NSLog(@"no lines found for %@ %@ %@",sectionType,sectionName,sectionCategory);
     return output;
 }
 
@@ -262,6 +264,8 @@
 -(XFPObjcProtocol*)protocolNamed:(NSString*)protocolName inFile:(NSURL*)url
 {
     XFPObjcProtocol * protocol = [XFPObjcProtocol new];
+    protocol.protocolName = protocolName;
+    protocol.headerFilePath = [url absoluteString];
     NSArray * lines = [self linesOfSection:@"protocol" sectionName:protocolName sectionCategory:@"" file:url];
     NSArray * methodLines = [self filterProtocolMethodLines:lines];
     BOOL isRequiredOn = NO;
